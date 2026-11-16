@@ -79,16 +79,16 @@ export const GALLERY_ITEMS = [
     "project": "Kadapa"
   },
   {
-    "id": "sage-compact-kitchen",
+    "id": "dental-clinic-treatment-room",
     "category": "commercial",
-    "title": "Dental Clinic · Pantry",
+    "title": "Dental Clinic · Treatment Room",
     "aspectRatio": "wide",
-    "image": "/images/projects/sage-compact-kitchen.jpg",
-    "thumbnail": "/images/projects/sage-compact-kitchen-preview.webp",
-    "width": 1341,
-    "height": 1122,
-    "description": "A compact pantry for the dental clinic, with sage lower cabinets, ivory wall storage, and open shelves.",
-    "designNotes": "Commercial interiors · Clinic pantry",
+    "image": "/images/projects/dental-clinic-treatment-room.jpg",
+    "thumbnail": "/images/projects/dental-clinic-treatment-room-preview.webp",
+    "width": 1600,
+    "height": 931,
+    "description": "A dental treatment room with a chair, fitted cabinetry, ceiling lighting, and a softly lit sculpted wall feature.",
+    "designNotes": "Commercial interiors · Treatment room",
     "project": "Dental Clinic"
   },
   {
@@ -328,7 +328,7 @@ export const GALLERY_ITEMS = [
   {
     "id": "stairside-marble-media-wall",
     "category": "living",
-    "title": "Stairside Marble Media Wall",
+    "title": "Chanda Nagar · Stairside Marble Media Wall",
     "aspectRatio": "wide",
     "image": "/images/projects/stairside-marble-media-wall.jpg",
     "thumbnail": "/images/projects/stairside-marble-media-wall-preview.webp",
@@ -336,7 +336,7 @@ export const GALLERY_ITEMS = [
     "height": 1056,
     "description": "A marble-look TV panel beside the staircase, balanced by timber and open shelves.",
     "designNotes": "Marble-look panel · Stairside storage",
-    "project": "Selected design studies"
+    "project": "Chanda Nagar"
   },
   {
     "id": "illuminated-stairside-tv-wall",
@@ -532,5 +532,57 @@ export const GALLERY_ITEMS = [
     "description": "A compact utility counter with storage above and below.",
     "designNotes": "Indis Viva City · Design presentation",
     "project": "Indis Viva City"
+  },
+  {
+    "id": "chanda-nagar-modular-kitchen",
+    "category": "kitchen",
+    "title": "Chanda Nagar · Modular Kitchen",
+    "aspectRatio": "wide",
+    "image": "/images/projects/chanda-nagar-modular-kitchen.jpg",
+    "thumbnail": "/images/projects/chanda-nagar-modular-kitchen-preview.webp",
+    "width": 1402,
+    "height": 1122,
+    "description": "A modular kitchen with sage cabinetry, illuminated glass-front overhead units, and a dark countertop.",
+    "designNotes": "Sage cabinetry · Illuminated glass storage",
+    "project": "Chanda Nagar"
+  },
+  {
+    "id": "dental-clinic-pantry-side",
+    "category": "commercial",
+    "title": "Dental Clinic · Pantry Storage",
+    "aspectRatio": "tall",
+    "image": "/images/projects/dental-clinic-pantry-side.jpg",
+    "thumbnail": "/images/projects/dental-clinic-pantry-side-preview.webp",
+    "width": 1226,
+    "height": 1283,
+    "description": "A compact clinic pantry with sage cabinetry, a full-height cabinet, open shelves, and a refreshment counter.",
+    "designNotes": "Commercial interiors · Pantry storage",
+    "project": "Dental Clinic"
+  },
+  {
+    "id": "dental-clinic-treatment-storage",
+    "category": "commercial",
+    "title": "Dental Clinic · Treatment Room & Storage",
+    "aspectRatio": "wide",
+    "image": "/images/projects/dental-clinic-treatment-storage.jpg",
+    "thumbnail": "/images/projects/dental-clinic-treatment-storage-preview.webp",
+    "width": 1600,
+    "height": 914,
+    "description": "A second view of the dental treatment room showing the chair, work counter, overhead storage, and mirrors.",
+    "designNotes": "Commercial interiors · Treatment storage",
+    "project": "Dental Clinic"
+  },
+  {
+    "id": "sage-compact-kitchen",
+    "category": "commercial",
+    "title": "Dental Clinic · Pantry",
+    "aspectRatio": "wide",
+    "image": "/images/projects/sage-compact-kitchen.jpg",
+    "thumbnail": "/images/projects/sage-compact-kitchen-preview.webp",
+    "width": 1370,
+    "height": 1148,
+    "description": "A compact pantry for the dental clinic, with sage lower cabinets, ivory wall storage, and open shelves.",
+    "designNotes": "Commercial interiors · Clinic pantry",
+    "project": "Dental Clinic"
   }
 ];

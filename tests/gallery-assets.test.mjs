@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { GALLERY_CATEGORIES, GALLERY_ITEMS } from '../src/data/galleryData.js';
 import { SERVICES } from '../src/data/servicesData.js';
 
@@ -33,6 +34,11 @@ test('reference-matched images retain the studio project names', () => {
     'backlit-ivory-tv-wall': 'Kadapa',
     'arched-living-partition': 'Kadapa',
     'sage-compact-kitchen': 'Dental Clinic',
+    'stairside-marble-media-wall': 'Chanda Nagar',
+    'chanda-nagar-modular-kitchen': 'Chanda Nagar',
+    'dental-clinic-treatment-room': 'Dental Clinic',
+    'dental-clinic-treatment-storage': 'Dental Clinic',
+    'dental-clinic-pantry-side': 'Dental Clinic',
   };
   for (const [id, project] of Object.entries(expected)) {
     const item = GALLERY_ITEMS.find((item) => item.id === id);
@@ -42,4 +48,13 @@ test('reference-matched images retain the studio project names', () => {
   assert.ok(GALLERY_ITEMS.filter((item) => item.category === 'exterior').every((item) => item.project === 'Proddutur'));
   assert.equal(GALLERY_ITEMS.find((item) => item.id === 'sage-compact-kitchen').category, 'commercial');
   assert.equal(new Set(GALLERY_ITEMS.slice(0, 6).map((item) => item.project)).size, 5);
+});
+
+test('the supplied project folders are complete without duplicate images', () => {
+  for (const [project, count] of [['Chanda Nagar', 6], ['Dental Clinic', 4], ['Kadapa', 2]]) {
+    assert.equal(GALLERY_ITEMS.filter((item) => item.project === project).length, count, project);
+  }
+  const hashes = GALLERY_ITEMS.map(({ image }) => createHash('sha256')
+    .update(readFileSync(new URL(`../public${image}`, import.meta.url))).digest('hex'));
+  assert.equal(new Set(hashes).size, GALLERY_ITEMS.length);
 });
