@@ -11,14 +11,14 @@ A premium, production-quality web platform for **Artscape Interiors**, an interi
 
 - **Architectural Brand Identity**: Built around the Artscape geometric A-frame emblem, champagne gold arcs, and warm ivory aesthetic.
 - **Multi-Page Architecture**: Fast, fluid routing powered by React Router DOM v7 across:
-  - `/` — **Home**: Hero lighting mood switcher, Before & After transformation slider, Material & Style explorer, services preview, and project timeline estimator.
+  - `/` — **Home**: Indis Viva City room switcher and featured project, Material & Style explorer, services preview, and project timeline estimator.
   - `/about` — **About Us**: Studio philosophy, four core design values, and 4-step execution journey.
   - `/services` — **Services**: All 8 interior design specializations, deliverable checklists, and FAQs.
-  - `/gallery` — **Gallery**: Responsive asymmetric masonry portfolio with room filter pills and fullscreen lightbox viewer.
+  - `/gallery` — **Gallery**: Studio project renders with room and exterior filters, an Indis Viva City scope overview, and a fullscreen original-quality image viewer.
   - `/contact` — **Contact Us**: Interactive inquiry form with URL service prefill, live IST studio open/closed badge, direct phone, WhatsApp fallback, and Kondapur Google Maps embed.
 - **Interactive Experience & "WOW Factor"**:
-  - **Hero Lighting Switcher**: Switch between morning diffused daylight, sunset warmth, and 2700K cozy evening mood.
-  - **Before & After Transformation Slider**: Draggable gold split-view comparison showing the transformation from a raw concrete shell to a finished turnkey home.
+  - **Project Room Switcher**: Explore living room, master bedroom, and entrance designs from Indis Viva City.
+  - **Featured Project**: Indis Viva City design scope based on the studio’s final presentation, with renders clearly identified as design visuals.
   - **Material & Style Lab**: Interactive palettes with real swatches and material textures.
   - **Spatial Scope & Timeline Estimator**: Custom project calculator with 1-click WhatsApp dispatch.
 - **Mobile First & Responsive**: Optimized for desktop, laptop scaled viewports (1366x768 to 4K), tablets, and mobile devices (with iOS Safari 16px input zoom prevention).
@@ -84,3 +84,9 @@ npm run preview
 ## 📄 License
 
 Proprietary © Artscape Interiors. All rights reserved.
+
+## Project images
+
+Full-size JPEGs retain their original bytes; PNG designs use pixel-identical lossless WebP. Gallery cards use high-quality 768px WebP previews and load lazily. Source images are preserved locally in `.codex-preview/source-images/` outside the public build. The gallery omits the repeated logo and two exact duplicate images.
+
+Run the asset and category check with `node --test tests/gallery-assets.test.mjs`.

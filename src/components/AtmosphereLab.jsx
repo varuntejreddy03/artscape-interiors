@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const PALETTES = [
   {
     id: 'travertine-warmth',
-    name: 'Warm Ivory & Travertine',
+    name: 'Warm Ivory & Gold',
     subtitle: 'Bright, airy, and welcoming',
-    lighting: 'Warm 2700K ambient ceiling lights',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85',
+    lighting: 'Warm ambient ceiling lights',
+    image: '/images/projects/indis-living-tv-wall-preview.webp',
     colors: [
       { name: 'Warm Ivory', hex: '#F7F3EC' },
       { name: 'Champagne Gold', hex: '#B58A3B' },
@@ -17,8 +17,8 @@ const PALETTES = [
       { name: 'Deep Charcoal', hex: '#222222' }
     ],
     materials: [
-      'Natural Italian Travertine stone',
-      'Soft textured fabric sofa',
+      'Light stone-look wall panels',
+      'Soft neutral upholstery',
       'Champagne gold metal trims',
       'Warm white wall paint'
     ],
@@ -26,10 +26,10 @@ const PALETTES = [
   },
   {
     id: 'walnut-calacatta',
-    name: 'Smoked Walnut & Marble',
-    subtitle: 'Modern European kitchen & dining',
-    lighting: 'Focused task lights over island & stove',
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=85',
+    name: 'Ivory & Walnut Accents',
+    subtitle: 'Warm, practical kitchen storage',
+    lighting: 'Task lights beneath overhead cabinetry',
+    image: '/images/projects/indis-modular-kitchen-preview.webp',
     colors: [
       { name: 'Smoked Walnut', hex: '#3E2F28' },
       { name: 'White Marble', hex: '#F4F4F2' },
@@ -37,19 +37,19 @@ const PALETTES = [
       { name: 'Graphite', hex: '#1C1C1C' }
     ],
     materials: [
-      'Stain-resistant quartz stone island',
-      'Rich smoked walnut wood finish',
+      'Dark continuous worktops',
+      'Warm wood-tone cabinet accents',
       'Black metal profile handles',
-      'Fluted glass pantry doors'
+      'Glass-front overhead cabinets'
     ],
     roomTypes: 'Best for: Modular kitchen, Dining area, Home office'
   },
   {
     id: 'nordic-serenity',
-    name: 'Natural Oak & Soft Linen',
+    name: 'Botanical Neutrals',
     subtitle: 'Peaceful master bedroom',
     lighting: 'Soft warm glow behind bed headboard',
-    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=85',
+    image: '/images/projects/indis-master-bedroom-preview.webp',
     colors: [
       { name: 'Light Oak', hex: '#D2B48C' },
       { name: 'Warm Beige', hex: '#EDE6DD' },
@@ -57,27 +57,27 @@ const PALETTES = [
       { name: 'Pure Linen', hex: '#FAF9F6' }
     ],
     materials: [
-      'Oak wood wall slats behind bed',
+      'Botanical wall art and wood-tone panels',
       'Soft padded fabric headboard',
       'Hidden warm LED glow lights',
-      'Durable matte wooden flooring'
+      'Light-toned flooring'
     ],
     roomTypes: 'Best for: Master bedroom, Walk-in wardrobe, Guest room'
   },
   {
     id: 'charcoal-brass',
-    name: 'Charcoal & Brushed Brass',
+    name: 'Walnut & Warm Brass',
     subtitle: 'Bold, modern, and striking',
     lighting: 'Dimmed accent spots & backlit shelves',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85',
+    image: '/images/projects/dining-display-counter-preview.webp',
     colors: [
-      { name: 'Dark Charcoal', hex: '#161616' },
+      { name: 'Warm Walnut', hex: '#624532' },
       { name: 'Gold Brass', hex: '#C9A054' },
       { name: 'Muted Grey', hex: '#85817B' },
       { name: 'Soft White', hex: '#FFFFFF' }
     ],
     materials: [
-      'Matte charcoal cabinet finish',
+      'Warm walnut-tone cabinet finish',
       'Brushed brass handles & trims',
       'Backlit glass display shelves',
       'Smooth stone countertop'
@@ -199,7 +199,7 @@ export default function AtmosphereLab() {
 
           <div className="pt-2 border-t border-[#222222]/8 space-y-2.5">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#222222] block">
-              Materials Used
+              Suggested Finishes
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {selectedPalette.materials.map((m, i) => (

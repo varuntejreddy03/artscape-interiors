@@ -4,7 +4,7 @@ import InstagramIcon from '../components/InstagramIcon';
 import { BRAND, getStudioStatus } from '../data/brand';
 import SectionHeading from '../components/SectionHeading';
 import ContactForm from '../components/ContactForm';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 
 export default function Contact({ selectedService }) {
   const [studioStatus, setStudioStatus] = useState(getStudioStatus());

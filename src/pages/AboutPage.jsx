@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Sparkles, Compass, Sliders, Layers, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import SectionHeading from '../components/SectionHeading';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 
 const PILLARS_EXPANDED = [
   {
@@ -80,7 +80,7 @@ export default function AboutPage() {
         }
         subtitle="Artscape Interiors is a boutique interior design studio in Kondapur, Hyderabad. We help homeowners turn empty spaces into warm, modern, and functional homes."
         breadcrumb="About Us"
-        bgImage="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=80"
+        bgImage="/images/projects/indis-living-tv-wall-preview.webp"
       />
 
       {/* 2. Story Section */}
@@ -129,7 +129,7 @@ export default function AboutPage() {
             <div className="lg:col-span-5 relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-[#222222]/8 bg-[#EDE7DD]">
                 <img
-                  src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=85"
+                  src="/images/projects/indis-master-bedroom-preview.webp"
                   alt="Modern clean bedroom"
                   className="w-full h-full object-cover"
                 />

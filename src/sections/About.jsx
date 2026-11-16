@@ -4,7 +4,7 @@ import { Compass, Sparkles, Sliders, Layers, ArrowUpRight, MapPin } from 'lucide
 import { BRAND } from '../data/brand';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 
 const PILLARS = [
   {
@@ -58,7 +58,7 @@ export default function About() {
           >
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-[#222222]/8 bg-[#EFECE6]">
               <img
-                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"
+                src="/images/projects/geometric-entry-partition-preview.webp"
                 alt="Contemporary architectural interior by Artscape design vision"
                 className="w-full h-full object-cover"
               />

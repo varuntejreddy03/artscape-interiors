@@ -3,7 +3,7 @@
 export const BRAND = {
   name: "ARTSCAPE INTERIORS",
   shortName: "Artscape",
-  tagline: "Elevating spaces with modern luxury, precision & purpose.",
+  tagline: "Designing dream spaces.",
   supportingMessage: "Let's design your dream space.",
   heroHeadline: "Spaces that inspire.\nInteriors that belong.",
   heroSupportingText: "We design clean, modern, and comfortable homes. Every space is planned with care, quality materials, and smart everyday living in mind.",

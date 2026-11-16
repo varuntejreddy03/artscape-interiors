@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowUp, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import InstagramIcon from './InstagramIcon';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 import { BRAND } from '../data/brand';
 
 const CURRENT_YEAR = new Date().getFullYear();
@@ -11,7 +11,7 @@ const FOOTER_NAV = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: 'Services', path: '/services' },
-  { name: 'Gallery', path: '/gallery' },
+  { name: 'Projects', path: '/gallery' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
@@ -60,7 +60,7 @@ export default function Footer() {
           {/* Brand Column (Col 1-5) */}
           <div className="lg:col-span-5 space-y-6">
             <Link to="/" className="flex items-center gap-3.5 inline-flex">
-              <div className="w-12 h-12 rounded-xl overflow-hidden bg-[#F7F3EC] p-1 border border-[#B58A3B]/40 shrink-0">
+              <div className="w-28 h-[76px] rounded-xl overflow-hidden bg-[#F7F3EC] border border-[#B58A3B]/40 shrink-0">
                 <img
                   src={logoImg}
                   alt="Artscape Interiors"

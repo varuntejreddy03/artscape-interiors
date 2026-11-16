@@ -5,35 +5,34 @@ import { ArrowUpRight, Sparkles, Compass, Sliders, Layers, MapPin, Maximize2, Su
 import { BRAND } from '../data/brand';
 import { SERVICES } from '../data/servicesData';
 import { GALLERY_ITEMS } from '../data/galleryData';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 import SectionHeading from '../components/SectionHeading';
 import ServiceCard from '../components/ServiceCard';
 import GalleryLightbox from '../components/GalleryLightbox';
-import BeforeAfterSlider from '../components/BeforeAfterSlider';
 import AtmosphereLab from '../components/AtmosphereLab';
 import SpatialEstimator from '../components/SpatialEstimator';
 
 const HERO_SCENES = [
   {
     id: 'morning',
-    name: 'Morning Light',
+    name: 'Living Room',
     icon: Sun,
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=90',
-    mood: 'Diffused morning light on warm stone'
+    image: '/images/projects/indis-living-tv-wall.webp',
+    mood: 'Indis Viva City · Living room design'
   },
   {
     id: 'golden',
-    name: 'Sunset Warmth',
+    name: 'Master Bedroom',
     icon: Sunset,
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90',
-    mood: 'Golden sunlight on architectural wood'
+    image: '/images/projects/indis-master-bedroom.webp',
+    mood: 'Indis Viva City · Master bedroom design'
   },
   {
     id: 'evening',
-    name: 'Evening Mood',
+    name: 'Entrance Foyer',
     icon: Moon,
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=90',
-    mood: 'Cozy evening with warm 2700K lights'
+    image: '/images/projects/indis-entrance-foyer.webp',
+    mood: 'Indis Viva City · Entrance design'
   }
 ];
 
@@ -92,7 +91,8 @@ export default function HomePage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               src={activeScene.image}
-              alt={activeScene.name}
+              alt={activeScene.mood}
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </AnimatePresence>
@@ -178,9 +178,9 @@ export default function HomePage() {
             >
               <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="text-[10px] font-mono tracking-widest uppercase text-[#B58A3B]">
-                  Change Mood
+                  Explore the Project
                 </span>
-                <span className="text-[9px] font-mono text-white/60">3 Lighting Modes</span>
+                <span className="text-[9px] font-mono text-white/60">Indis Viva City</span>
               </div>
               <div className="grid grid-cols-3 gap-1.5">
                 {HERO_SCENES.map((scene) => {
@@ -232,23 +232,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. BEFORE & AFTER TRANSFORMATION SLIDER (Proportioned for Laptops) */}
-      <section className="py-16 sm:py-24 bg-[#FAF8F5] relative border-b border-[#222222]/6">
+      <section className="py-16 sm:py-24 bg-[#FAF8F5] border-b border-[#222222]/6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Before & After"
-            title={
-              <>
-                From an empty flat to a{' '}
-                <span className="italic font-serif font-normal text-[#B58A3B]">beautiful home</span>.
-              </>
-            }
-            subtitle="Drag the gold divider handle left and right to see how we transform empty concrete spaces into warm, modern homes."
+            eyebrow="Featured Project · Indis Viva City"
+            title={<>One home. <span className="italic font-serif text-[#B58A3B]">Every detail considered.</span></>}
+            subtitle="A coordinated home design, from the welcoming foyer and pooja space to the living room, bedrooms, kitchen, and utility."
             align="split"
           />
-
-          <div className="mt-6 sm:mt-8">
-            <BeforeAfterSlider />
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <img src="/images/projects/indis-living-tv-wall.webp" alt="Indis Viva City living room TV wall design" width="1592" height="988" loading="lazy" className="w-full rounded-3xl border border-[#222222]/8" />
+            <div className="space-y-5">
+              <p className="text-xs font-mono tracking-widest uppercase text-[#B58A3B]">From concept to comfort</p>
+              <h3 className="text-2xl sm:text-3xl font-light">Warm finishes. Thoughtful storage. A home that flows.</h3>
+              <p className="text-sm leading-relaxed text-[#85817B]">The design brings together custom TV cabinetry, botanical bedroom walls, playful children’s storage, a modular kitchen, and practical laundry cabinetry.</p>
+              <p className="text-xs text-[#85817B]">Project design renders from the studio’s Indis Viva City presentation.</p>
+              <Link to="/gallery#indis-viva-city" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#222222] hover:text-[#B58A3B]">Explore this project <ArrowUpRight className="w-4 h-4" /></Link>
+            </div>
           </div>
         </div>
       </section>
@@ -273,7 +273,7 @@ export default function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-h-[460px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-[#222222]/8 bg-[#EFECE6]">
                 <img
-                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85"
+                  src="/images/projects/geometric-entry-partition.jpg"
                   alt="Modern clean living space"
                   className="w-full h-full object-cover"
                 />
@@ -411,11 +411,11 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 bg-[#FAF8F5] relative border-t border-[#222222]/6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Design Gallery"
+            eyebrow="Previous Projects & Design Studies"
             title={
               <>
                 Take a look at our{' '}
-                <span className="italic font-serif font-normal text-[#B58A3B]">favorite rooms</span>.
+                <span className="italic font-serif font-normal text-[#B58A3B]">project collection</span>.
               </>
             }
             subtitle="Browse clean living spaces, modern kitchens, serene bedrooms, and custom storage solutions."
@@ -427,15 +427,21 @@ export default function HomePage() {
               <div
                 key={item.id}
                 onClick={() => openLightbox(index)}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${item.title}`}
+                onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(index); } }}
                 className="group relative rounded-2xl overflow-hidden bg-[#EDE7DD] shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-[#222222]/8 cursor-pointer aspect-[4/3]"
               >
                 <img
-                  src={item.image}
+                  src={item.thumbnail}
                   alt={item.title}
+                  width={item.width}
+                  height={item.height}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 text-white">
                   <div className="self-end w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
                     <Maximize2 className="w-3.5 h-3.5 text-white" />
                   </div>
@@ -457,7 +463,7 @@ export default function HomePage() {
               to="/gallery"
               className="inline-flex items-center justify-center gap-2.5 text-xs uppercase tracking-widest font-semibold px-7 py-3.5 rounded-full bg-[#B58A3B] text-white hover:bg-[#A37B30] transition-all shadow-sm"
             >
-              <span>See Full Gallery</span>
+              <span>Explore All Projects</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>

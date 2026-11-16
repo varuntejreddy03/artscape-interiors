@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { BRAND } from '../data/brand';
 import Button from '../components/Button';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 
 export default function Hero() {
   const scrollToWork = (e) => {
@@ -33,7 +33,7 @@ export default function Hero() {
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease: "easeOut" }}
-          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=90"
+          src="/images/projects/indis-living-tv-wall-preview.webp"
           alt="Luxury living room architectural interior"
           className="w-full h-full object-cover object-center"
         />

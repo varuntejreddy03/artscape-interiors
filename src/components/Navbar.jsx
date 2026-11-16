@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Phone, Mail, MapPin } from 'lucide-react';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 import { BRAND } from '../data/brand';
 
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: 'Services', path: '/services' },
-  { name: 'Gallery', path: '/gallery' },
+  { name: 'Projects', path: '/gallery' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
@@ -49,8 +49,8 @@ export default function Navbar() {
           isScrolled
             ? 'bg-[#F7F3EC]/95 backdrop-blur-md py-3 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border-b border-[#222222]/8'
             : isHomePage
-            ? 'bg-transparent py-4 sm:py-6'
-            : 'bg-[#181818]/95 backdrop-blur-md py-3.5 sm:py-5 border-b border-white/5'
+            ? 'bg-transparent py-2 sm:py-3'
+            : 'bg-[#181818]/95 backdrop-blur-md py-2 sm:py-3 border-b border-white/5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,27 +61,13 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none"
             >
-              <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-lg overflow-hidden border border-[#B58A3B]/40 shadow-xs bg-[#F7F3EC] p-0.5 transition-transform duration-300 group-hover:scale-105 shrink-0">
-                <img
-                  src={logoImg}
-                  alt="Artscape Interiors Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex flex-col text-left">
-                <span
-                  className={`text-sm sm:text-lg font-semibold tracking-[0.14em] uppercase font-sans leading-none transition-colors duration-300 ${
-                    isScrolled
-                      ? 'text-[#222222]'
-                      : 'text-white'
-                  }`}
-                >
-                  ARTSCAPE
-                </span>
-                <span className="text-[9px] sm:text-[11px] tracking-[0.24em] text-[#B58A3B] uppercase font-medium mt-1">
-                  INTERIORS
-                </span>
-              </div>
+              <img
+                src={logoImg}
+                alt="Artscape Interiors — Designing Dream Spaces"
+                width="1536"
+                height="1024"
+                className="w-24 sm:w-28 h-16 sm:h-[74px] object-contain rounded-lg border border-[#B58A3B]/40 shadow-sm transition-transform group-hover:scale-105"
+              />
             </Link>
 
             {/* Desktop Navigation Links */}

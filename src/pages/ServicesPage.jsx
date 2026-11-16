@@ -46,7 +46,7 @@ export default function ServicesPage() {
         }
         subtitle="Explore our 8 interior design services. From modular kitchens and living rooms to full turnkey home execution, we make the process simple and stress-free."
         breadcrumb="Services"
-        bgImage="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1800&q=80"
+        bgImage="/images/projects/indis-modular-kitchen-preview.webp"
       />
 
       {/* 2. All 8 Services Grid */}

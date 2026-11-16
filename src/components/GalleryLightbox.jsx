@@ -39,7 +39,10 @@ export default function GalleryLightbox({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl select-none"
+        role="dialog"
+        aria-modal="true"
+        aria-label={currentItem.title}
+        className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 backdrop-blur-xl select-none"
         onClick={onClose}
       >
         {/* Top Controls Bar */}
@@ -50,7 +53,7 @@ export default function GalleryLightbox({
           {/* Index Counter */}
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono tracking-widest text-[#B58A3B] uppercase">
-              Inspiration Showcase
+              Project Showcase
             </span>
             <span className="text-white/30 text-xs">•</span>
             <span className="text-xs font-mono text-white/80">
@@ -111,6 +114,8 @@ export default function GalleryLightbox({
             <img
               src={currentItem.image}
               alt={currentItem.title}
+              width={currentItem.width}
+              height={currentItem.height}
               className="max-h-[52vh] sm:max-h-[65vh] w-auto object-contain max-w-full"
             />
           </motion.div>

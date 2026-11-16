@@ -6,7 +6,7 @@ import SectionHeading from '../components/SectionHeading';
 import ContactForm from '../components/ContactForm';
 import InstagramIcon from '../components/InstagramIcon';
 import { BRAND, getStudioStatus } from '../data/brand';
-import logoImg from '../assets/logo.jpg';
+import logoImg from '../assets/logo.webp';
 
 export default function ContactPage() {
   const [searchParams] = useSearchParams();
@@ -34,7 +34,7 @@ export default function ContactPage() {
         }
         subtitle="Get in touch with our design studio in Kondapur, Hyderabad. Tell us about your home and we will be happy to guide you."
         breadcrumb="Contact Us"
-        bgImage="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1800&q=80"
+        bgImage="/images/projects/geometric-entry-partition-preview.webp"
       />
 
       {/* 2. Main Contact Grid in simple English */}

@@ -92,7 +92,7 @@ export default function Gallery() {
                 >
                   <div className={`w-full ${aspectClasses} overflow-hidden relative`}>
                     <img
-                      src={item.image}
+                      src={item.thumbnail}
                       alt={item.title}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -126,7 +126,7 @@ export default function Gallery() {
         <div className="mt-12 text-center text-xs text-[#85817B] max-w-xl mx-auto flex items-center justify-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-[#B58A3B]" />
           <span>
-            Curated interior photography reflecting Artscape's design philosophy, material palette, and European architectural standards.
+            Studio-supplied interior photography reflecting Artscape's design philosophy, material palette, and European architectural standards.
           </span>
         </div>
       </div>
