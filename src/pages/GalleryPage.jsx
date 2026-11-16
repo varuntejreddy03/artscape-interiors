@@ -8,12 +8,15 @@ import { GALLERY_CATEGORIES, GALLERY_ITEMS } from '../data/galleryData';
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [activeProject, setActiveProject] = useState('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  const filteredItems = activeCategory === 'all'
-    ? GALLERY_ITEMS
-    : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
+  const projects = [...new Set(GALLERY_ITEMS.map((item) => item.project))];
+  const filteredItems = GALLERY_ITEMS.filter((item) =>
+    (activeCategory === 'all' || item.category === activeCategory) &&
+    (activeProject === 'all' || item.project === activeProject)
+  );
 
   const openLightbox = (index) => {
     setLightboxIndex(index);
@@ -39,7 +42,7 @@ export default function GalleryPage() {
             <span className="italic font-serif font-normal text-[#B58A3B]">project portfolio</span>.
           </>
         }
-        subtitle="Explore Artscape’s interior and exterior design studies, including the coordinated home design at Indis Viva City."
+        subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, dental clinic interiors, and residential elevations in Proddutur."
         breadcrumb="Projects"
         bgImage="/images/projects/warm-display-media-wall.jpg"
       />
@@ -67,16 +70,29 @@ export default function GalleryPage() {
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Filter by Room"
+            eyebrow="Browse Our Projects"
             title={
               <>
                 Spaces designed for{' '}
                 <span className="italic font-serif font-normal text-[#B58A3B]">comfortable living</span>.
               </>
             }
-            subtitle="Browse rooms, custom details, utility spaces, and residential exteriors. Open an image to see the full design."
+            subtitle="Choose a project, then browse its rooms and details. Our portfolio includes residential interiors, commercial spaces, and elevations."
             align="split"
           />
+
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+            <label htmlFor="project-filter" className="text-xs font-semibold uppercase tracking-wider text-[#222222]">Project</label>
+            <select
+              id="project-filter"
+              value={activeProject}
+              onChange={(event) => { setActiveProject(event.target.value); setActiveCategory('all'); setLightboxIndex(0); }}
+              className="w-full sm:w-auto rounded-xl bg-white border border-[#222222]/15 px-4 py-3 text-base text-[#222222] focus:outline-2 focus:outline-[#B58A3B]"
+            >
+              <option value="all">All Projects</option>
+              {projects.map((project) => <option key={project} value={project}>{project}</option>)}
+            </select>
+          </div>
 
           {/* Category Filter Pills */}
           <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-12 no-scrollbar">
@@ -99,6 +115,10 @@ export default function GalleryPage() {
               );
             })}
           </div>
+
+          {filteredItems.length === 0 && (
+            <p role="status" className="py-12 text-center text-sm text-[#66615A]">No images in this category for the selected project. Choose All Projects or another category.</p>
+          )}
 
           {/* Asymmetric Masonry Grid */}
           <motion.div
@@ -157,6 +177,7 @@ export default function GalleryPage() {
                         </h4>
                       </div>
                     </div>
+                    <p className="px-4 py-3 text-sm font-medium text-[#222222] bg-white">{item.project}</p>
                   </motion.div>
                 );
               })}

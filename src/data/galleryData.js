@@ -2,7 +2,7 @@
 export const GALLERY_CATEGORIES = [
   {
     "id": "all",
-    "label": "All Projects"
+    "label": "All Spaces"
   },
   {
     "id": "living",
@@ -29,6 +29,10 @@ export const GALLERY_CATEGORIES = [
     "label": "Utility"
   },
   {
+    "id": "commercial",
+    "label": "Commercial"
+  },
+  {
     "id": "exterior",
     "label": "Exteriors"
   }
@@ -47,6 +51,71 @@ export const GALLERY_ITEMS = [
     "description": "A warm TV feature wall with fluted panels, display niches, and a floating console.",
     "designNotes": "Fluted panels · Display shelves",
     "project": "Indis Viva City"
+  },
+  {
+    "id": "grey-bedroom-suite",
+    "category": "bedroom",
+    "title": "Chanda Nagar · Bedroom & Wardrobe",
+    "aspectRatio": "wide",
+    "image": "/images/projects/grey-bedroom-suite.jpg",
+    "thumbnail": "/images/projects/grey-bedroom-suite-preview.webp",
+    "width": 1526,
+    "height": 1030,
+    "description": "A grey upholstered bedroom with a built-in wardrobe and integrated dressing mirror.",
+    "designNotes": "Grey palette · Built-in wardrobe",
+    "project": "Chanda Nagar"
+  },
+  {
+    "id": "arched-living-partition",
+    "category": "details",
+    "title": "Kadapa · Living Area & Partition",
+    "aspectRatio": "wide",
+    "image": "/images/projects/arched-living-partition.jpg",
+    "thumbnail": "/images/projects/arched-living-partition-preview.webp",
+    "width": 1536,
+    "height": 1024,
+    "description": "A timber screen and rounded doorway define the transition into the living area.",
+    "designNotes": "Timber screen · Arched doorway",
+    "project": "Kadapa"
+  },
+  {
+    "id": "sage-compact-kitchen",
+    "category": "commercial",
+    "title": "Dental Clinic · Pantry",
+    "aspectRatio": "wide",
+    "image": "/images/projects/sage-compact-kitchen.jpg",
+    "thumbnail": "/images/projects/sage-compact-kitchen-preview.webp",
+    "width": 1341,
+    "height": 1122,
+    "description": "A compact pantry for the dental clinic, with sage lower cabinets, ivory wall storage, and open shelves.",
+    "designNotes": "Commercial interiors · Clinic pantry",
+    "project": "Dental Clinic"
+  },
+  {
+    "id": "residence-evening-elevation",
+    "category": "exterior",
+    "title": "Proddutur · Evening Elevation",
+    "aspectRatio": "wide",
+    "image": "/images/projects/residence-evening-elevation.jpg",
+    "thumbnail": "/images/projects/residence-evening-elevation-preview.webp",
+    "width": 1327,
+    "height": 1186,
+    "description": "A multi-level residential facade with balconies, vertical screening, and warm architectural lighting.",
+    "designNotes": "Balconies · Architectural lighting",
+    "project": "Proddutur"
+  },
+  {
+    "id": "dining-display-counter",
+    "category": "dining",
+    "title": "Chanda Nagar · Dining Display Counter",
+    "aspectRatio": "wide",
+    "image": "/images/projects/dining-display-counter.jpg",
+    "thumbnail": "/images/projects/dining-display-counter-preview.webp",
+    "width": 1599,
+    "height": 978,
+    "description": "A crockery and display wall with a serving counter, mirror, and illuminated niches.",
+    "designNotes": "Serving counter · Display lighting",
+    "project": "Chanda Nagar"
   },
   {
     "id": "indis-master-bedroom",
@@ -99,19 +168,6 @@ export const GALLERY_ITEMS = [
     "description": "An entrance with a curved bench, timber detailing, pendant light, and a softly lit wall feature.",
     "designNotes": "Entry seating · Warm lighting",
     "project": "Indis Viva City"
-  },
-  {
-    "id": "residence-evening-elevation",
-    "category": "exterior",
-    "title": "Residence · Evening Elevation",
-    "aspectRatio": "wide",
-    "image": "/images/projects/residence-evening-elevation.jpg",
-    "thumbnail": "/images/projects/residence-evening-elevation-preview.webp",
-    "width": 1327,
-    "height": 1186,
-    "description": "A multi-level residential facade with balconies, vertical screening, and warm architectural lighting.",
-    "designNotes": "Balconies · Architectural lighting",
-    "project": "Selected design studies"
   },
   {
     "id": "indis-pooja-entrance",
@@ -231,19 +287,6 @@ export const GALLERY_ITEMS = [
     "project": "Selected design studies"
   },
   {
-    "id": "sage-compact-kitchen",
-    "category": "kitchen",
-    "title": "Sage & Ivory Kitchen",
-    "aspectRatio": "wide",
-    "image": "/images/projects/sage-compact-kitchen.jpg",
-    "thumbnail": "/images/projects/sage-compact-kitchen-preview.webp",
-    "width": 1341,
-    "height": 1122,
-    "description": "A compact kitchen with sage lower cabinets, ivory wall storage, and open display shelves.",
-    "designNotes": "Sage cabinetry · Compact layout",
-    "project": "Selected design studies"
-  },
-  {
     "id": "curved-gold-media-wall",
     "category": "living",
     "title": "Curved Gold Media Wall",
@@ -259,7 +302,7 @@ export const GALLERY_ITEMS = [
   {
     "id": "backlit-ivory-tv-wall",
     "category": "living",
-    "title": "Backlit Ivory TV Wall",
+    "title": "Kadapa · Living Room TV Wall",
     "aspectRatio": "wide",
     "image": "/images/projects/backlit-ivory-tv-wall.jpg",
     "thumbnail": "/images/projects/backlit-ivory-tv-wall-preview.webp",
@@ -267,20 +310,7 @@ export const GALLERY_ITEMS = [
     "height": 1132,
     "description": "An ivory TV panel framed by warm concealed lighting and a low media console.",
     "designNotes": "Concealed lighting · Ivory palette",
-    "project": "Selected design studies"
-  },
-  {
-    "id": "arched-living-partition",
-    "category": "details",
-    "title": "Arched Living Partition",
-    "aspectRatio": "wide",
-    "image": "/images/projects/arched-living-partition.jpg",
-    "thumbnail": "/images/projects/arched-living-partition-preview.webp",
-    "width": 1536,
-    "height": 1024,
-    "description": "A timber screen and rounded doorway define the transition into the living area.",
-    "designNotes": "Timber screen · Arched doorway",
-    "project": "Selected design studies"
+    "project": "Kadapa"
   },
   {
     "id": "warm-display-media-wall",
@@ -363,7 +393,7 @@ export const GALLERY_ITEMS = [
   {
     "id": "floral-panel-bedroom",
     "category": "bedroom",
-    "title": "Floral Panel Bedroom",
+    "title": "Chanda Nagar · Floral Panel Bedroom",
     "aspectRatio": "tall",
     "image": "/images/projects/floral-panel-bedroom.jpg",
     "thumbnail": "/images/projects/floral-panel-bedroom-preview.webp",
@@ -371,38 +401,12 @@ export const GALLERY_ITEMS = [
     "height": 545,
     "description": "A neutral bedroom with tall floral panels and a softly upholstered headboard.",
     "designNotes": "Floral panels · Neutral bedding",
-    "project": "Selected design studies"
-  },
-  {
-    "id": "grey-bedroom-suite",
-    "category": "bedroom",
-    "title": "Grey Bedroom Suite",
-    "aspectRatio": "wide",
-    "image": "/images/projects/grey-bedroom-suite.jpg",
-    "thumbnail": "/images/projects/grey-bedroom-suite-preview.webp",
-    "width": 1526,
-    "height": 1030,
-    "description": "A grey upholstered bedroom with a built-in wardrobe and integrated dressing mirror.",
-    "designNotes": "Grey palette · Built-in wardrobe",
-    "project": "Selected design studies"
-  },
-  {
-    "id": "dining-display-counter",
-    "category": "dining",
-    "title": "Dining Display Counter",
-    "aspectRatio": "wide",
-    "image": "/images/projects/dining-display-counter.jpg",
-    "thumbnail": "/images/projects/dining-display-counter-preview.webp",
-    "width": 1599,
-    "height": 978,
-    "description": "A crockery and display wall with a serving counter, mirror, and illuminated niches.",
-    "designNotes": "Serving counter · Display lighting",
-    "project": "Selected design studies"
+    "project": "Chanda Nagar"
   },
   {
     "id": "geometric-entry-partition",
     "category": "details",
-    "title": "Geometric Entry Partition",
+    "title": "Chanda Nagar · Entrance Partition",
     "aspectRatio": "wide",
     "image": "/images/projects/geometric-entry-partition.jpg",
     "thumbnail": "/images/projects/geometric-entry-partition-preview.webp",
@@ -410,12 +414,12 @@ export const GALLERY_ITEMS = [
     "height": 647,
     "description": "An open timber partition with geometric shelves frames the entrance passage.",
     "designNotes": "Open partition · Geometric shelves",
-    "project": "Selected design studies"
+    "project": "Chanda Nagar"
   },
   {
     "id": "residence-charcoal-elevation",
     "category": "exterior",
-    "title": "Residence · Charcoal & Timber",
+    "title": "Proddutur · Charcoal & Timber",
     "aspectRatio": "wide",
     "image": "/images/projects/residence-charcoal-elevation.jpg",
     "thumbnail": "/images/projects/residence-charcoal-elevation-preview.webp",
@@ -423,12 +427,12 @@ export const GALLERY_ITEMS = [
     "height": 519,
     "description": "A contemporary residence with a charcoal facade, timber accents, and a screened gate.",
     "designNotes": "Charcoal facade · Timber accents",
-    "project": "Selected design studies"
+    "project": "Proddutur"
   },
   {
     "id": "residence-terracotta-elevation",
     "category": "exterior",
-    "title": "Residence · Terracotta & White",
+    "title": "Proddutur · Terracotta & White",
     "aspectRatio": "wide",
     "image": "/images/projects/residence-terracotta-elevation.jpg",
     "thumbnail": "/images/projects/residence-terracotta-elevation-preview.webp",
@@ -436,12 +440,12 @@ export const GALLERY_ITEMS = [
     "height": 941,
     "description": "A residential facade with terracotta tones, deep balconies, and contrasting white framing.",
     "designNotes": "Terracotta tones · Balcony framing",
-    "project": "Selected design studies"
+    "project": "Proddutur"
   },
   {
     "id": "residence-sunset-elevation",
     "category": "exterior",
-    "title": "Residence · Sunset Facade",
+    "title": "Proddutur · Sunset Facade",
     "aspectRatio": "wide",
     "image": "/images/projects/residence-sunset-elevation.jpg",
     "thumbnail": "/images/projects/residence-sunset-elevation-preview.webp",
@@ -449,12 +453,12 @@ export const GALLERY_ITEMS = [
     "height": 941,
     "description": "A warm residential elevation with timber-look cladding, balcony planting, and a white gate.",
     "designNotes": "Warm cladding · Balcony planting",
-    "project": "Selected design studies"
+    "project": "Proddutur"
   },
   {
     "id": "residence-stone-elevation",
     "category": "exterior",
-    "title": "Residence · Stone & Light",
+    "title": "Proddutur · Stone & Light",
     "aspectRatio": "wide",
     "image": "/images/projects/residence-stone-elevation.jpg",
     "thumbnail": "/images/projects/residence-stone-elevation-preview.webp",
@@ -462,12 +466,12 @@ export const GALLERY_ITEMS = [
     "height": 632,
     "description": "A low-rise residence with stone-look cladding and warm recessed entrance lighting.",
     "designNotes": "Stone-look cladding · Entrance lighting",
-    "project": "Selected design studies"
+    "project": "Proddutur"
   },
   {
     "id": "residence-courtyard-elevation",
     "category": "exterior",
-    "title": "Residence · Courtyard Entrance",
+    "title": "Proddutur · Courtyard Entrance",
     "aspectRatio": "wide",
     "image": "/images/projects/residence-courtyard-elevation.jpg",
     "thumbnail": "/images/projects/residence-courtyard-elevation-preview.webp",
@@ -475,7 +479,7 @@ export const GALLERY_ITEMS = [
     "height": 487,
     "description": "A contemporary entrance with vertical screening, a sheltered porch, and timber detailing.",
     "designNotes": "Sheltered porch · Vertical screening",
-    "project": "Selected design studies"
+    "project": "Proddutur"
   },
   {
     "id": "indis-pooja-cabinet",

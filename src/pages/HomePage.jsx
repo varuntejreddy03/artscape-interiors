@@ -418,7 +418,7 @@ export default function HomePage() {
                 <span className="italic font-serif font-normal text-[#B58A3B]">project collection</span>.
               </>
             }
-            subtitle="Browse clean living spaces, modern kitchens, serene bedrooms, and custom storage solutions."
+            subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, our dental clinic interiors, and Proddutur elevations."
             align="split"
           />
 
@@ -441,6 +441,7 @@ export default function HomePage() {
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+                <span className="absolute top-3 left-3 rounded-full bg-[#F7F3EC]/95 px-3 py-1.5 text-xs font-medium text-[#222222] shadow-sm">{item.project}</span>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 text-white">
                   <div className="self-end w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
                     <Maximize2 className="w-3.5 h-3.5 text-white" />
