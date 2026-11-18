@@ -39,19 +39,25 @@ test('reference-matched images retain the studio project names', () => {
     'dental-clinic-treatment-room': 'Dental Clinic',
     'dental-clinic-treatment-storage': 'Dental Clinic',
     'dental-clinic-pantry-side': 'Dental Clinic',
+    'residence-charcoal-elevation': 'Siddavatam',
+    'residence-stone-elevation': 'Siddavatam',
+    'residence-courtyard-elevation': 'Siddavatam',
+    'residence-evening-elevation': 'Proddutur',
+    'residence-terracotta-elevation': 'Proddutur',
+    'residence-sunset-elevation': 'Proddutur',
   };
   for (const [id, project] of Object.entries(expected)) {
     const item = GALLERY_ITEMS.find((item) => item.id === id);
     assert.equal(item.project, project);
     assert.ok(item.title.startsWith(`${project} · `), id);
   }
-  assert.ok(GALLERY_ITEMS.filter((item) => item.category === 'exterior').every((item) => item.project === 'Proddutur'));
+  assert.ok(GALLERY_ITEMS.filter((item) => item.category === 'exterior').every((item) => ['Proddutur', 'Siddavatam'].includes(item.project)));
   assert.equal(GALLERY_ITEMS.find((item) => item.id === 'sage-compact-kitchen').category, 'commercial');
-  assert.equal(new Set(GALLERY_ITEMS.slice(0, 6).map((item) => item.project)).size, 5);
+  assert.equal(new Set(GALLERY_ITEMS.slice(0, 6).map((item) => item.project)).size, 6);
 });
 
 test('the supplied project folders are complete without duplicate images', () => {
-  for (const [project, count] of [['Chanda Nagar', 6], ['Dental Clinic', 4], ['Kadapa', 2]]) {
+  for (const [project, count] of [['Chanda Nagar', 6], ['Dental Clinic', 4], ['Kadapa', 2], ['Proddutur', 3], ['Siddavatam', 3]]) {
     assert.equal(GALLERY_ITEMS.filter((item) => item.project === project).length, count, project);
   }
   const hashes = GALLERY_ITEMS.map(({ image }) => createHash('sha256')

@@ -91,4 +91,4 @@ Full-size JPEGs retain their original bytes; PNG designs use pixel-identical los
 
 Run the asset and category check with `node --test tests/gallery-assets.test.mjs`.
 
-Project names follow the studio’s reference images: Indis Viva City, Chanda Nagar, Kadapa, Dental Clinic, and Proddutur elevations. Only visually identified images receive these names; other images remain selected design studies. WhatsApp reference screenshots are not website assets.
+Project names follow the studio’s reference images: Indis Viva City, Chanda Nagar, Kadapa, Dental Clinic, and elevations in Proddutur and Siddavatam. Only visually identified images receive these names; other images remain selected design studies. WhatsApp reference screenshots are not website assets.

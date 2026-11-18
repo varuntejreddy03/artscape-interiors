@@ -105,6 +105,19 @@ export const GALLERY_ITEMS = [
     "project": "Proddutur"
   },
   {
+    "id": "residence-charcoal-elevation",
+    "category": "exterior",
+    "title": "Siddavatam · Charcoal & Timber",
+    "aspectRatio": "wide",
+    "image": "/images/projects/residence-charcoal-elevation.jpg",
+    "thumbnail": "/images/projects/residence-charcoal-elevation-preview.webp",
+    "width": 760,
+    "height": 519,
+    "description": "A contemporary residence with a charcoal facade, timber accents, and a screened gate.",
+    "designNotes": "Charcoal facade · Timber accents",
+    "project": "Siddavatam"
+  },
+  {
     "id": "dining-display-counter",
     "category": "dining",
     "title": "Chanda Nagar · Dining Display Counter",
@@ -417,19 +430,6 @@ export const GALLERY_ITEMS = [
     "project": "Chanda Nagar"
   },
   {
-    "id": "residence-charcoal-elevation",
-    "category": "exterior",
-    "title": "Proddutur · Charcoal & Timber",
-    "aspectRatio": "wide",
-    "image": "/images/projects/residence-charcoal-elevation.jpg",
-    "thumbnail": "/images/projects/residence-charcoal-elevation-preview.webp",
-    "width": 760,
-    "height": 519,
-    "description": "A contemporary residence with a charcoal facade, timber accents, and a screened gate.",
-    "designNotes": "Charcoal facade · Timber accents",
-    "project": "Proddutur"
-  },
-  {
     "id": "residence-terracotta-elevation",
     "category": "exterior",
     "title": "Proddutur · Terracotta & White",
@@ -458,7 +458,7 @@ export const GALLERY_ITEMS = [
   {
     "id": "residence-stone-elevation",
     "category": "exterior",
-    "title": "Proddutur · Stone & Light",
+    "title": "Siddavatam · Stone & Light",
     "aspectRatio": "wide",
     "image": "/images/projects/residence-stone-elevation.jpg",
     "thumbnail": "/images/projects/residence-stone-elevation-preview.webp",
@@ -466,12 +466,12 @@ export const GALLERY_ITEMS = [
     "height": 632,
     "description": "A low-rise residence with stone-look cladding and warm recessed entrance lighting.",
     "designNotes": "Stone-look cladding · Entrance lighting",
-    "project": "Proddutur"
+    "project": "Siddavatam"
   },
   {
     "id": "residence-courtyard-elevation",
     "category": "exterior",
-    "title": "Proddutur · Courtyard Entrance",
+    "title": "Siddavatam · Courtyard Entrance",
     "aspectRatio": "wide",
     "image": "/images/projects/residence-courtyard-elevation.jpg",
     "thumbnail": "/images/projects/residence-courtyard-elevation-preview.webp",
@@ -479,7 +479,7 @@ export const GALLERY_ITEMS = [
     "height": 487,
     "description": "A contemporary entrance with vertical screening, a sheltered porch, and timber detailing.",
     "designNotes": "Sheltered porch · Vertical screening",
-    "project": "Proddutur"
+    "project": "Siddavatam"
   },
   {
     "id": "indis-pooja-cabinet",

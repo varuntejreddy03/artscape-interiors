@@ -42,7 +42,7 @@ export default function GalleryPage() {
             <span className="italic font-serif font-normal text-[#B58A3B]">project portfolio</span>.
           </>
         }
-        subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, dental clinic interiors, and residential elevations in Proddutur."
+        subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, dental clinic interiors, and residential elevations in Proddutur and Siddavatam."
         breadcrumb="Projects"
         bgImage="/images/projects/warm-display-media-wall.jpg"
       />

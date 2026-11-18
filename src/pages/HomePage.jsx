@@ -418,7 +418,7 @@ export default function HomePage() {
                 <span className="italic font-serif font-normal text-[#B58A3B]">project collection</span>.
               </>
             }
-            subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, our dental clinic interiors, and Proddutur elevations."
+            subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, our dental clinic interiors, and elevations in Proddutur and Siddavatam."
             align="split"
           />
 
