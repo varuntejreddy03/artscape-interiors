@@ -29,6 +29,7 @@ export default function Navbar() {
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -47,7 +48,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#F7F3EC]/95 backdrop-blur-md py-3 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border-b border-[#222222]/8'
+            ? 'bg-[#181818]/75 backdrop-blur-md py-2 sm:py-3 border-b border-white/10'
             : isHomePage
             ? 'bg-transparent py-2 sm:py-3'
             : 'bg-[#181818]/95 backdrop-blur-md py-2 sm:py-3 border-b border-white/5'
@@ -66,7 +67,7 @@ export default function Navbar() {
                 alt="Artscape Interiors — Designing Dream Spaces"
                 width="1536"
                 height="1024"
-                className="w-24 sm:w-28 h-16 sm:h-[74px] object-contain rounded-lg border border-[#B58A3B]/40 shadow-sm transition-transform group-hover:scale-105"
+                className="w-24 sm:w-28 h-16 sm:h-[74px] object-contain transition-transform group-hover:scale-105"
               />
             </Link>
 
@@ -84,8 +85,6 @@ export default function Navbar() {
                       className={`${
                         isActive
                           ? 'text-[#B58A3B] font-semibold'
-                          : isScrolled
-                          ? 'text-[#222222]/80 hover:text-[#222222]'
                           : 'text-white/85 hover:text-white'
                       }`}
                     >
@@ -105,11 +104,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-4">
               <Link
                 to="/contact"
-                className={`inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold px-5 py-2.5 rounded-full transition-all duration-300 ${
-                  isScrolled
-                    ? 'bg-[#222222] text-[#F7F3EC] hover:bg-[#161616] hover:text-[#B58A3B] shadow-sm'
-                    : 'bg-[#B58A3B] text-white hover:bg-[#A37B30] shadow-sm hover:shadow-lg'
-                }`}
+                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold px-5 py-2.5 rounded-full transition-all duration-300 bg-[#B58A3B] text-white hover:bg-[#A37B30] shadow-sm hover:shadow-lg"
               >
                 <span>Let's Talk</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -129,11 +124,7 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors focus:outline-none shrink-0 cursor-pointer ${
-                  isScrolled
-                    ? 'bg-[#222222]/5 text-[#222222] active:bg-[#222222]/15'
-                    : 'bg-white/15 text-white active:bg-white/25'
-                }`}
+                className="w-10 h-10 flex items-center justify-center rounded-full transition-colors focus:outline-none shrink-0 cursor-pointer bg-white/15 text-white active:bg-white/25"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>

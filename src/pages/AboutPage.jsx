@@ -131,6 +131,8 @@ export default function AboutPage() {
                 <img
                   src="/images/projects/indis-master-bedroom-preview.webp"
                   alt="Modern clean bedroom"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

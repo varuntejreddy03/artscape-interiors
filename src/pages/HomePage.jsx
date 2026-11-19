@@ -18,6 +18,9 @@ const HERO_SCENES = [
     name: 'Living Room',
     icon: Sun,
     image: '/images/projects/indis-living-tv-wall.webp',
+    thumbnail: '/images/projects/indis-living-tv-wall-preview.webp',
+    width: 1592,
+    height: 988,
     mood: 'Indis Viva City · Living room design'
   },
   {
@@ -25,6 +28,9 @@ const HERO_SCENES = [
     name: 'Master Bedroom',
     icon: Sunset,
     image: '/images/projects/indis-master-bedroom.webp',
+    thumbnail: '/images/projects/indis-master-bedroom-preview.webp',
+    width: 1672,
+    height: 941,
     mood: 'Indis Viva City · Master bedroom design'
   },
   {
@@ -32,6 +38,9 @@ const HERO_SCENES = [
     name: 'Entrance Foyer',
     icon: Moon,
     image: '/images/projects/indis-entrance-foyer.webp',
+    thumbnail: '/images/projects/indis-entrance-foyer-preview.webp',
+    width: 1520,
+    height: 1034,
     mood: 'Indis Viva City · Entrance design'
   }
 ];
@@ -83,7 +92,7 @@ export default function HomePage() {
       <section className="relative min-h-[85vh] lg:min-h-[92vh] lg:max-h-[860px] flex flex-col justify-end pt-24 sm:pt-28 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 bg-[#1B1917] rounded-b-[24px] sm:rounded-b-[40px] overflow-hidden border-b border-black/10 shadow-lg">
         {/* Dynamic Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <AnimatePresence mode="sync">
+          <AnimatePresence initial={false} mode="sync">
             <motion.img
               key={activeScene.id}
               initial={{ opacity: 0, scale: 1.05 }}
@@ -91,6 +100,10 @@ export default function HomePage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               src={activeScene.image}
+              srcSet={`${activeScene.thumbnail} 768w, ${activeScene.image} ${activeScene.width}w`}
+              sizes="(max-width: 1023px) 150vh, 100vw"
+              width={activeScene.width}
+              height={activeScene.height}
               alt={activeScene.mood}
               fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover object-center"
@@ -107,16 +120,14 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-10">
             {/* Left Headline & Content */}
             <div className="max-w-2xl lg:max-w-3xl">
-              {/* Studio Brand Pill with Official Logo */}
+              {/* Studio location */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white mb-3 sm:mb-4"
+                className="flex items-center gap-2 text-white mb-3 sm:mb-4"
               >
-                <div className="w-4 h-4 rounded-full overflow-hidden bg-white p-0.5 shrink-0 border border-[#B58A3B]">
-                  <img src={logoImg} alt="Artscape Logo" className="w-full h-full object-contain" />
-                </div>
+                <MapPin className="w-3.5 h-3.5 shrink-0 text-[#B58A3B]" aria-hidden="true" />
                 <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.16em] uppercase text-[#D8C8B2]">
                   Artscape Interiors • Kondapur, Hyderabad
                 </span>
@@ -241,7 +252,7 @@ export default function HomePage() {
             align="split"
           />
           <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <img src="/images/projects/indis-living-tv-wall.webp" alt="Indis Viva City living room TV wall design" width="1592" height="988" loading="lazy" className="w-full rounded-3xl border border-[#222222]/8" />
+            <img src="/images/projects/indis-living-tv-wall.webp" srcSet="/images/projects/indis-living-tv-wall-preview.webp 768w, /images/projects/indis-living-tv-wall.webp 1592w" sizes="(min-width: 1024px) 50vw, 100vw" alt="Indis Viva City living room TV wall design" width="1592" height="988" loading="lazy" decoding="async" className="w-full rounded-3xl border border-[#222222]/8" />
             <div className="space-y-5">
               <p className="text-xs font-mono tracking-widest uppercase text-[#B58A3B]">From concept to comfort</p>
               <h3 className="text-2xl sm:text-3xl font-light">Warm finishes. Thoughtful storage. A home that flows.</h3>
@@ -273,8 +284,12 @@ export default function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-h-[460px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-[#222222]/8 bg-[#EFECE6]">
                 <img
-                  src="/images/projects/geometric-entry-partition.jpg"
+                  src="/images/projects/geometric-entry-partition-preview.webp"
                   alt="Modern clean living space"
+                  width="1007"
+                  height="647"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -439,6 +454,7 @@ export default function HomePage() {
                   width={item.width}
                   height={item.height}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <span className="absolute top-3 left-3 rounded-full bg-[#F7F3EC]/95 px-3 py-1.5 text-xs font-medium text-[#222222] shadow-sm">{item.project}</span>

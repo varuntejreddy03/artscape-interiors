@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { GALLERY_CATEGORIES, GALLERY_ITEMS } from '../src/data/galleryData.js';
 import { SERVICES } from '../src/data/servicesData.js';
@@ -54,6 +54,14 @@ test('reference-matched images retain the studio project names', () => {
   assert.ok(GALLERY_ITEMS.filter((item) => item.category === 'exterior').every((item) => ['Proddutur', 'Siddavatam'].includes(item.project)));
   assert.equal(GALLERY_ITEMS.find((item) => item.id === 'sage-compact-kitchen').category, 'commercial');
   assert.equal(new Set(GALLERY_ITEMS.slice(0, 6).map((item) => item.project)).size, 6);
+});
+
+test('project images and the shared logo stay within their download budgets', () => {
+  for (const { image, thumbnail } of GALLERY_ITEMS) {
+    assert.ok(statSync(new URL(`../public${image}`, import.meta.url)).size < 450 * 1024, image);
+    assert.ok(statSync(new URL(`../public${thumbnail}`, import.meta.url)).size < 64 * 1024, thumbnail);
+  }
+  assert.ok(statSync(new URL('../src/assets/logo.webp', import.meta.url)).size < 20 * 1024);
 });
 
 test('the supplied project folders are complete without duplicate images', () => {

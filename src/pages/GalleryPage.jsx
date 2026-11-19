@@ -44,13 +44,13 @@ export default function GalleryPage() {
         }
         subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, dental clinic interiors, and residential elevations in Proddutur and Siddavatam."
         breadcrumb="Projects"
-        bgImage="/images/projects/warm-display-media-wall.jpg"
+        bgImage="/images/projects/warm-display-media-wall-preview.webp"
       />
 
       <section id="indis-viva-city" className="scroll-mt-28 pt-16 sm:pt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 rounded-3xl overflow-hidden bg-[#EDE7DD] border border-[#222222]/8">
-            <img src="/images/projects/indis-master-bedroom.webp" alt="Indis Viva City master bedroom design with botanical wall art" width="1672" height="941" className="w-full h-full object-cover min-h-64" />
+            <img src="/images/projects/indis-master-bedroom.webp" srcSet="/images/projects/indis-master-bedroom-preview.webp 768w, /images/projects/indis-master-bedroom.webp 1672w" sizes="(min-width: 1024px) 50vw, 100vw" alt="Indis Viva City master bedroom design with botanical wall art" width="1672" height="941" loading="lazy" decoding="async" className="w-full h-full object-cover min-h-64" />
             <div className="p-6 sm:p-10 space-y-5">
               <span className="text-xs font-mono tracking-widest uppercase text-[#98722C]">Featured Home Design</span>
               <h2 className="text-3xl sm:text-4xl font-light">Indis Viva City</h2>

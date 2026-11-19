@@ -116,6 +116,7 @@ export default function GalleryLightbox({
               alt={currentItem.title}
               width={currentItem.width}
               height={currentItem.height}
+              decoding="async"
               className="max-h-[52vh] sm:max-h-[65vh] w-auto object-contain max-w-full"
             />
           </motion.div>

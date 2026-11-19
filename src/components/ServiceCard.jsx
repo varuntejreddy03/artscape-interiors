@@ -17,6 +17,7 @@ export default function ServiceCard({ service, onEnquire, index }) {
           src={service.image}
           alt={service.title}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
         {/* Subtle dark gradient overlay */}
