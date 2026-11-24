@@ -1,13 +1,13 @@
 import React from 'react';
 import { Maximize2 } from 'lucide-react';
 
-export default function GalleryCollectionCard({ collection, onOpen }) {
+export default function GalleryCollectionCard({ collection, onOpen, previewItems = collection.items.slice(0, 3) }) {
   const { id, title, description, items } = collection;
 
   return (
-    <article id={id} className="group relative scroll-mt-28 overflow-hidden rounded-2xl border border-architectural bg-ivory-light focus-within:ring-2 focus-within:ring-gold">
+    <article id={id} className="group relative scroll-mt-[calc(var(--portfolio-scroll-offset,var(--site-header-height))+0.625rem)] overflow-hidden rounded-2xl border border-architectural bg-ivory-light focus-within:ring-2 focus-within:ring-gold">
       <div className="grid aspect-[5/3] grid-cols-[2fr_1fr] grid-rows-2 gap-1 overflow-hidden bg-ivory-dark" aria-hidden="true">
-        {items.slice(0, 3).map((item, index) => (
+        {previewItems.map((item, index) => (
           <img
             key={item.id}
             src={item.thumbnail}
@@ -16,7 +16,7 @@ export default function GalleryCollectionCard({ collection, onOpen }) {
             alt=""
             loading="lazy"
             decoding="async"
-            className={`h-full w-full object-cover ${index === 0 || items.length === 2 ? 'row-span-2' : ''}`}
+            className={`h-full w-full object-cover ${index === 0 || previewItems.length === 2 ? 'row-span-2' : ''}`}
           />
         ))}
       </div>

@@ -70,7 +70,7 @@ export const DESIGN_COLLECTIONS = [
       ["kitchen-with-breakfast-counter", "Kitchen with Breakfast Counter", "A timber peninsula, lit display cabinets and patterned backsplash define the kitchen.", 720, 1006],
       ["patterned-tile-kitchen", "Patterned-Tile Kitchen", "Decorative cabinetry, timber shelving and a patterned backsplash give this kitchen its character.", 736, 1104],
       ["window-side-kitchen", "Window-Side Kitchen", "A window seat and open shelving bring daylight into a timber and olive kitchen.", 735, 919],
-    ].map(portfolioImage).concat(previousStudies.filter((item) => item.category === 'kitchen')),
+    ].map(portfolioImage),
   },
   {
     id: "bedroom-designs",

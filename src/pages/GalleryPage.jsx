@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowDown, ArrowUpRight, Maximize2 } from 'lucide-react';
+import { ArrowDown, Maximize2 } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import SectionHeading from '../components/SectionHeading';
 import GalleryCollectionCard from '../components/GalleryCollectionCard';
@@ -11,13 +11,6 @@ const PORTFOLIO_SECTIONS = [
   ['design-portfolio', 'Design Portfolio'],
   ['interior-concept-boards', 'Concept Boards'],
 ];
-
-const [featuredProject, ...moreProjects] = PROJECT_COLLECTIONS;
-const [livingRoom, bedroom, kitchen] = [
-  'indis-living-tv-wall',
-  'indis-master-bedroom',
-  'indis-modular-kitchen',
-].map((id) => featuredProject.items.find((item) => item.id === id));
 
 const sectionScrollMargin = 'scroll-mt-[calc(var(--portfolio-scroll-offset)+0.625rem)] md:scroll-mt-(--portfolio-scroll-offset)';
 
@@ -57,69 +50,14 @@ export default function GalleryPage() {
         </nav>
 
         <section id="projects" className="scroll-mt-(--portfolio-scroll-offset) pb-12 pt-7 sm:pb-20 sm:pt-10">
-          <article
-            id={featuredProject.id}
-            aria-labelledby="featured-project-title"
-            className={`${sectionScrollMargin} mb-12 grid overflow-hidden rounded-3xl border border-architectural bg-ivory-light sm:mb-16 lg:grid-cols-[1.6fr_1fr]`}
-          >
-            <figure className="relative aspect-[16/11] bg-ivory-dark lg:aspect-auto">
-              <img
-                src={livingRoom.thumbnail}
-                srcSet={`${livingRoom.thumbnail} 768w, ${livingRoom.image} ${livingRoom.width}w`}
-                sizes="(min-width: 1280px) 750px, (min-width: 1024px) 60vw, 100vw"
-                width={livingRoom.width}
-                height={livingRoom.height}
-                alt={livingRoom.description}
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-5 pb-4 pt-9 text-sm font-medium text-white sm:px-7">
-                Living room
-              </figcaption>
-            </figure>
-            <div className="flex flex-col justify-center p-5 sm:p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-dark">Featured project</p>
-              <h2 id="featured-project-title" className="mt-2 font-serif text-3xl tracking-tight sm:text-4xl">
-                {featuredProject.title}
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#66615A] sm:text-base">
-                {featuredProject.description}
-              </p>
-              <button
-                type="button"
-                onClick={() => openCollection(featuredProject)}
-                aria-haspopup="dialog"
-                className="mt-4 inline-flex min-h-11 w-fit cursor-pointer items-center gap-2.5 rounded-full bg-charcoal px-5 text-sm font-medium text-ivory hover:bg-[#3b342b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-              >
-                View full project <ArrowUpRight className="h-4 w-4 text-gold-light" aria-hidden="true" />
-              </button>
-              <div className="mt-6 grid grid-cols-2 gap-3 border-t border-architectural pt-5">
-                {[[bedroom, 'Master bedroom'], [kitchen, 'Modular kitchen']].map(([room, label]) => (
-                  <figure key={room.id}>
-                    <img
-                      src={room.thumbnail}
-                      width={room.width}
-                      height={room.height}
-                      alt={room.description}
-                      decoding="async"
-                      loading="lazy"
-                      className="aspect-[4/3] w-full rounded-xl bg-ivory-dark object-cover"
-                    />
-                    <figcaption className="mt-2 text-xs font-medium text-[#66615A]">{label}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
-          </article>
-
           <SectionHeading
-            title="More projects"
+            title="Projects"
             subtitle="Open a project to see its rooms, custom details and elevations together."
             align="split"
             className="mb-6 md:mb-10"
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {moreProjects.map((collection) => (
+            {PROJECT_COLLECTIONS.map((collection) => (
               <GalleryCollectionCard key={collection.id} collection={collection} onOpen={openCollection} />
             ))}
           </div>

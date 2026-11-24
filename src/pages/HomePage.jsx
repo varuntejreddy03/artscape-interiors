@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Sparkles, Compass, Sliders, Layers, MapPin, Sun, Sunset, Moon } from 'lucide-react';
 import { BRAND } from '../data/brand';
 import { SERVICES } from '../data/servicesData';
+import { GALLERY_ITEMS } from '../data/galleryData';
 import { PROJECT_COLLECTIONS } from '../data/portfolioData';
 import logoImg from '../assets/logo.webp';
 import SectionHeading from '../components/SectionHeading';
@@ -15,36 +16,44 @@ import SpatialEstimator from '../components/SpatialEstimator';
 
 const HERO_SCENES = [
   {
-    id: 'morning',
+    id: 'living-room',
     name: 'Living Room',
     icon: Sun,
     image: '/images/projects/indis-living-tv-wall.webp',
     thumbnail: '/images/projects/indis-living-tv-wall-preview.webp',
     width: 1592,
     height: 988,
-    mood: 'Indis Viva City · Living room design'
+    thumbnailWidth: 768,
+    mood: 'Warm lighting and built-in media storage'
   },
   {
-    id: 'golden',
-    name: 'Master Bedroom',
+    id: 'bedroom',
+    name: 'Bedroom',
     icon: Sunset,
-    image: '/images/projects/indis-master-bedroom.webp',
-    thumbnail: '/images/projects/indis-master-bedroom-preview.webp',
-    width: 1672,
-    height: 941,
-    mood: 'Indis Viva City · Master bedroom design'
+    image: '/images/projects/grey-bedroom-suite.jpg',
+    thumbnail: '/images/projects/grey-bedroom-suite-preview.webp',
+    width: 1526,
+    height: 1030,
+    thumbnailWidth: 767,
+    mood: 'Soft grey finishes and fitted wardrobes'
   },
   {
-    id: 'evening',
-    name: 'Entrance Foyer',
+    id: 'entryway',
+    name: 'Entryway',
     icon: Moon,
-    image: '/images/projects/indis-entrance-foyer.webp',
-    thumbnail: '/images/projects/indis-entrance-foyer-preview.webp',
-    width: 1520,
-    height: 1034,
-    mood: 'Indis Viva City · Entrance design'
+    image: '/images/portfolio/botanical-panel-partition.jpg',
+    thumbnail: '/images/portfolio/botanical-panel-partition-preview.webp',
+    width: 736,
+    height: 736,
+    thumbnailWidth: 480,
+    mood: 'A botanical partition frames the entry'
   }
 ];
+
+const projectPreviews = {
+  'indis-viva-city': ['indis-childrens-bedroom', 'indis-kitchen-display', 'indis-wash-console'],
+  'chanda-nagar': ['dining-display-counter', 'floral-panel-bedroom', 'stairside-marble-media-wall'],
+};
 
 const PILLARS = [
   {
@@ -100,7 +109,7 @@ export default function HomePage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               src={activeScene.image}
-              srcSet={`${activeScene.thumbnail} 768w, ${activeScene.image} ${activeScene.width}w`}
+              srcSet={`${activeScene.thumbnail} ${activeScene.thumbnailWidth}w, ${activeScene.image} ${activeScene.width}w`}
               sizes="(max-width: 1023px) 150vh, 100vw"
               width={activeScene.width}
               height={activeScene.height}
@@ -187,12 +196,9 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="bg-black/60 backdrop-blur-md p-3 rounded-2xl border border-white/15 w-full sm:max-w-xs self-stretch sm:self-auto lg:self-end"
             >
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-[10px] font-mono tracking-widest uppercase text-[#B58A3B]">
-                  Explore the Project
-                </span>
-                <span className="text-[9px] font-mono text-white/60">Indis Viva City</span>
-              </div>
+              <p className="mb-2 text-[10px] font-mono tracking-widest uppercase text-[#B58A3B]">
+                Explore by room
+              </p>
               <div className="grid grid-cols-3 gap-1.5">
                 {HERO_SCENES.map((scene) => {
                   const Icon = scene.icon;
@@ -202,6 +208,7 @@ export default function HomePage() {
                       key={scene.id}
                       type="button"
                       onClick={() => setActiveScene(scene)}
+                      aria-pressed={isActive}
                       className={`p-2 rounded-xl border flex flex-col items-center gap-1 transition-all cursor-pointer ${
                         isActive
                           ? 'bg-white/20 border-[#B58A3B] text-white shadow-sm'
@@ -216,7 +223,7 @@ export default function HomePage() {
                   );
                 })}
               </div>
-              <p className="mt-2 text-[9px] text-white/60 text-center font-mono italic">
+              <p className="mt-2 text-[9px] text-white/70 text-center font-mono" aria-live="polite">
                 {activeScene.mood}
               </p>
             </motion.div>
@@ -243,28 +250,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 bg-[#FAF8F5] border-b border-[#222222]/6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Featured Project · Indis Viva City"
-            title={<>One home. <span className="italic font-serif text-[#B58A3B]">Every detail considered.</span></>}
-            subtitle="A coordinated home design, from the welcoming foyer and pooja space to the living room, bedrooms, kitchen, and utility."
-            align="split"
-          />
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <img src="/images/projects/indis-living-tv-wall.webp" srcSet="/images/projects/indis-living-tv-wall-preview.webp 768w, /images/projects/indis-living-tv-wall.webp 1592w" sizes="(min-width: 1024px) 50vw, 100vw" alt="Indis Viva City living room TV wall design" width="1592" height="988" loading="lazy" decoding="async" className="w-full rounded-3xl border border-[#222222]/8" />
-            <div className="space-y-5">
-              <p className="text-xs font-mono tracking-widest uppercase text-[#B58A3B]">From concept to comfort</p>
-              <h3 className="text-2xl sm:text-3xl font-light">Warm finishes. Thoughtful storage. A home that flows.</h3>
-              <p className="text-sm leading-relaxed text-[#85817B]">The design brings together custom TV cabinetry, botanical bedroom walls, playful children’s storage, a modular kitchen, and practical laundry cabinetry.</p>
-              <p className="text-xs text-[#85817B]">Project design renders from the studio’s Indis Viva City presentation.</p>
-              <Link to="/gallery#indis-viva-city" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#222222] hover:text-[#B58A3B]">Explore this project <ArrowUpRight className="w-4 h-4" /></Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. ABOUT US TEASER */}
+      {/* About us */}
       <section className="py-16 sm:py-24 bg-[#F7F3EC] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -374,7 +360,6 @@ export default function HomePage() {
                 <span className="italic font-serif font-normal text-[#B58A3B]">interior styles</span>.
               </>
             }
-            subtitle="Click on any style below to see matching colors, wood finishes, and lighting options."
             align="split"
           />
 
@@ -439,7 +424,12 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {PROJECT_COLLECTIONS.map((project) => (
-              <GalleryCollectionCard key={project.id} collection={project} onOpen={openLightbox} />
+              <GalleryCollectionCard
+                key={project.id}
+                collection={project}
+                onOpen={openLightbox}
+                previewItems={projectPreviews[project.id]?.map((id) => GALLERY_ITEMS.find((item) => item.id === id))}
+              />
             ))}
           </div>
 

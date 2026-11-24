@@ -231,6 +231,9 @@ export default function ContactForm({ initialService = '' }) {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#222222]/10 text-base sm:text-sm text-[#222222] focus:bg-white focus:outline-none focus:border-[#B58A3B] transition-all cursor-pointer"
               >
+                {initialService && !SERVICES.some((service) => service.inquiryValue === initialService) && (
+                  <option value={initialService}>{initialService}</option>
+                )}
                 {SERVICES.map((serv) => (
                   <option key={serv.id} value={serv.inquiryValue}>
                     {serv.title}

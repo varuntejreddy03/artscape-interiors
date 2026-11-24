@@ -7,7 +7,7 @@ export const SERVICES = [
     title: "Residential Interior Design",
     tagline: "Complete home interiors designed for your family",
     description: "We design complete homes from start to finish. We make sure every room looks beautiful, feels open, and fits your daily lifestyle.",
-    image: "/images/projects/indis-living-tv-wall-preview.webp",
+    image: "/images/projects/indis-lotus-partition-preview.webp",
     features: [
       "Full home concept & 3D room views",
       "Colors and furniture that match across rooms",
@@ -35,7 +35,7 @@ export const SERVICES = [
     title: "Bedroom Interiors",
     tagline: "Peaceful bedrooms made for deep rest",
     description: "Your bedroom should be a calm private retreat. We design comfortable bed headboards, spacious built-in wardrobes, and soft bedside lighting.",
-    image: "/images/projects/indis-master-bedroom-preview.webp",
+    image: "/images/projects/indis-guest-bedroom-preview.webp",
     features: [
       "Custom bed backrests & wall paneling",
       "Walk-in wardrobes & dressing mirrors",
@@ -49,7 +49,7 @@ export const SERVICES = [
     title: "Modular Kitchen Design",
     tagline: "Clean, modern kitchens that make cooking easy",
     description: "We build kitchens that look sleek and work smoothly. Enjoy strong countertops, soft-close drawers, smart pantry units, and good cooking lights.",
-    image: "/images/projects/indis-modular-kitchen-preview.webp",
+    image: "/images/projects/chanda-nagar-modular-kitchen-preview.webp",
     features: [
       "Smooth soft-close German hardware",
       "Durable quartz and porcelain countertops",

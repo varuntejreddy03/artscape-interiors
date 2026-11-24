@@ -65,13 +65,10 @@ test('project images and the shared logo stay within their download budgets', ()
   assert.ok(statSync(new URL('../src/assets/logo.webp', import.meta.url)).size < 20 * 1024);
 });
 
-test('the supplied project folders are complete without duplicate images', () => {
+test('the supplied project folders are complete', () => {
   for (const [project, count] of [['Chanda Nagar', 6], ['Dental Clinic', 4], ['Kadapa', 2], ['Proddutur', 3], ['Siddavatam', 3]]) {
     assert.equal(GALLERY_ITEMS.filter((item) => item.project === project).length, count, project);
   }
-  const hashes = GALLERY_ITEMS.map(({ image }) => createHash('sha256')
-    .update(readFileSync(new URL(`../public${image}`, import.meta.url))).digest('hex'));
-  assert.equal(new Set(hashes).size, GALLERY_ITEMS.length);
 });
 
 test('the portfolio groups each render and includes every November 24 design reference', () => {
@@ -90,6 +87,9 @@ test('the portfolio groups each render and includes every November 24 design ref
   assert.deepEqual(portfolio.filter((item) => item.project).map(({ id }) => id).sort(), GALLERY_ITEMS.map(({ id }) => id).sort());
   const allImages = [...portfolio, ...CONCEPT_BOARDS];
   assert.equal(new Set(allImages.map(({ id }) => id)).size, allImages.length);
+  const imageHashes = allImages.map(({ image }) => createHash('sha256')
+    .update(readFileSync(new URL(`../public${image}`, import.meta.url))).digest('hex'));
+  assert.equal(new Set(imageHashes).size, allImages.length);
   for (const { image, thumbnail, width, height } of allImages) {
     assert.ok(width > 0 && height > 0, image);
     assert.ok(statSync(new URL(`../public${image}`, import.meta.url)).size < 450 * 1024, image);

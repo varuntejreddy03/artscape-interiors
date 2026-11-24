@@ -11,15 +11,14 @@ A premium, production-quality web platform for **Artscape Interiors**, an interi
 
 - **Architectural Brand Identity**: Built around the Artscape geometric A-frame emblem, champagne gold arcs, and warm ivory aesthetic.
 - **Multi-Page Architecture**: Fast, fluid routing powered by React Router DOM v7 across:
-  - `/` — **Home**: Indis Viva City room switcher and featured project, Material & Style explorer, services preview, and project timeline estimator.
+  - `/` — **Home** with a room switcher, interior concept boards, project and service previews, and a timeline estimator.
   - `/about` — **About Us**: Studio philosophy, four core design values, and 4-step execution journey.
   - `/services` — **Services**: All 8 interior design specializations, deliverable checklists, and FAQs.
   - `/gallery` — **Portfolio** with named project galleries, design references grouped by space, and interior concept boards.
   - `/contact` — **Contact Us**: Interactive inquiry form with URL service prefill, live IST studio open/closed badge, direct phone, WhatsApp fallback, and Kondapur Google Maps embed.
 - **Interactive Experience & "WOW Factor"**:
-  - **Project Room Switcher**: Explore living room, master bedroom, and entrance designs from Indis Viva City.
-  - **Featured Project**: Indis Viva City design scope based on the studio’s final presentation, with renders clearly identified as design visuals.
-  - **Material & Style Lab**: Interactive palettes with real swatches and material textures.
+  - **Room Switcher** with living room, bedroom, and entryway design previews.
+  - **Style Explorer** with the studio’s concept boards, color palettes, and style enquiries.
   - **Spatial Scope & Timeline Estimator**: Custom project calculator with 1-click WhatsApp dispatch.
 - **Mobile First & Responsive**: Optimized for desktop, laptop scaled viewports (1366x768 to 4K), tablets, and mobile devices (with iOS Safari 16px input zoom prevention).
 

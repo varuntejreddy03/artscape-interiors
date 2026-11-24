@@ -378,19 +378,6 @@ export const GALLERY_ITEMS = [
     "project": "Selected design studies"
   },
   {
-    "id": "warm-neutral-kitchen",
-    "category": "kitchen",
-    "title": "Warm Neutral Kitchen",
-    "aspectRatio": "wide",
-    "image": "/images/projects/warm-neutral-kitchen.jpg",
-    "thumbnail": "/images/projects/warm-neutral-kitchen-preview.webp",
-    "width": 752,
-    "height": 602,
-    "description": "An L-shaped kitchen with light cabinetry and illuminated glass-front overhead units.",
-    "designNotes": "L-shaped kitchen · Glass cabinets",
-    "project": "Selected design studies"
-  },
-  {
     "id": "minimal-stairside-media-wall",
     "category": "living",
     "title": "Minimal Stairside Media Wall",
