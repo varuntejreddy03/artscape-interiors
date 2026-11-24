@@ -14,7 +14,7 @@ A premium, production-quality web platform for **Artscape Interiors**, an interi
   - `/` — **Home**: Indis Viva City room switcher and featured project, Material & Style explorer, services preview, and project timeline estimator.
   - `/about` — **About Us**: Studio philosophy, four core design values, and 4-step execution journey.
   - `/services` — **Services**: All 8 interior design specializations, deliverable checklists, and FAQs.
-  - `/gallery` — **Gallery**: Studio project renders with named project, room, commercial, and exterior filters, an Indis Viva City scope overview, and a fullscreen original-quality image viewer.
+  - `/gallery` — **Portfolio** with named project galleries, design references grouped by space, and interior concept boards.
   - `/contact` — **Contact Us**: Interactive inquiry form with URL service prefill, live IST studio open/closed badge, direct phone, WhatsApp fallback, and Kondapur Google Maps embed.
 - **Interactive Experience & "WOW Factor"**:
   - **Project Room Switcher**: Explore living room, master bedroom, and entrance designs from Indis Viva City.
@@ -87,8 +87,8 @@ Proprietary © Artscape Interiors. All rights reserved.
 
 ## Project images
 
-Full-size JPEGs retain their original bytes; PNG designs use pixel-identical lossless WebP. Gallery cards use high-quality 768px WebP previews and load lazily. Source images are preserved locally in `.codex-preview/source-images/` outside the public build. The gallery omits the repeated logo and two exact duplicate images.
+Full-size JPEGs retain their original bytes. Project and portfolio cards use lazy-loaded WebP previews. The full-screen viewer opens the original-resolution images and provides a full-size link for concept boards.
 
 Run the asset and category check with `node --test tests/gallery-assets.test.mjs`.
 
-Project names follow the studio’s reference images: Indis Viva City, Chanda Nagar, Kadapa, Dental Clinic, and elevations in Proddutur and Siddavatam. Only visually identified images receive these names; other images remain selected design studies. WhatsApp reference screenshots are not website assets.
+The project galleries follow the studio’s names for Indis Viva City, Chanda Nagar, Kadapa, Dental Clinic, Proddutur and Siddavatam. The Design Portfolio and Interior Concept Boards sections show the studio’s design references.

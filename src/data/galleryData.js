@@ -482,19 +482,6 @@ export const GALLERY_ITEMS = [
     "project": "Siddavatam"
   },
   {
-    "id": "indis-pooja-cabinet",
-    "category": "details",
-    "title": "Indis Viva City · Pooja Cabinet",
-    "aspectRatio": "tall",
-    "image": "/images/projects/indis-pooja-cabinet.webp",
-    "thumbnail": "/images/projects/indis-pooja-cabinet.webp",
-    "width": 230,
-    "height": 445,
-    "description": "A devotional cabinet with a decorative central panel and open shelves.",
-    "designNotes": "Indis Viva City · Design presentation",
-    "project": "Indis Viva City"
-  },
-  {
     "id": "indis-pooja-doors",
     "category": "details",
     "title": "Indis Viva City · Pooja Doors",

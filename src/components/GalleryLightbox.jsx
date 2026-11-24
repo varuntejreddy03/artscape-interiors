@@ -1,151 +1,132 @@
-import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useLayoutEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+
+const controlClass = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/12 text-white hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-gold cursor-pointer';
 
 export default function GalleryLightbox({
   isOpen,
+  title = 'Project Showcase',
   currentIndex,
   items,
+  showOriginal,
   onClose,
   onNext,
-  onPrev
+  onPrev,
+  onSelect,
 }) {
-  const currentItem = items && items[currentIndex];
+  const dialogRef = useRef(null);
+  const previewsRef = useRef(null);
+  const currentItem = items?.[currentIndex];
 
-  useEffect(() => {
-    if (!isOpen) return;
+  useLayoutEffect(() => {
+    const dialog = dialogRef.current;
+    if (!isOpen || !dialog) return;
 
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowRight') onNext();
-      if (e.key === 'ArrowLeft') onPrev();
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
+    const trigger = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
     document.body.style.overflow = 'hidden';
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      trigger?.focus({ preventScroll: true });
     };
-  }, [isOpen, onClose, onNext, onPrev]);
+  }, [isOpen]);
+
+  useLayoutEffect(() => {
+    const previews = previewsRef.current;
+    const selected = previews?.children[currentIndex];
+    if (selected) {
+      previews.scrollLeft = selected.offsetLeft - (previews.clientWidth - selected.offsetWidth) / 2;
+    }
+  }, [currentIndex, isOpen]);
 
   if (!isOpen || !currentItem) return null;
 
+  function handleArrowKey(event) {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      if (event.key === 'ArrowRight') onNext();
+      else onPrev();
+    }
+  }
+
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        role="dialog"
-        aria-modal="true"
-        aria-label={currentItem.title}
-        className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 backdrop-blur-xl select-none"
-        onClick={onClose}
-      >
-        {/* Top Controls Bar */}
-        <div
-          className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-4 sm:p-6 text-white"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Index Counter */}
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono tracking-widest text-[#B58A3B] uppercase">
-              Project Showcase
-            </span>
-            <span className="text-white/30 text-xs">•</span>
-            <span className="text-xs font-mono text-white/80">
-              {String(currentIndex + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-            </span>
+    <dialog
+      ref={dialogRef}
+      aria-label={title}
+      onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
+      onCancel={(event) => { event.preventDefault(); onClose(); }}
+      onKeyDown={handleArrowKey}
+      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none overflow-y-auto bg-[#171513] px-3 py-3 text-white backdrop:bg-black sm:px-6 sm:py-5"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+          <span className="font-medium text-gold-light">{title}</span>
+          <span className="tabular-nums text-white/70" aria-live="polite">{currentIndex + 1} / {items.length}</span>
+        </div>
+        <button type="button" onClick={onClose} aria-label="Close Lightbox" className={controlClass}>
+          <X className="h-5 w-5" />
+        </button>
+      </div>
+
+      <div className="relative mx-auto mt-3 flex max-w-6xl items-center justify-between gap-2 sm:gap-5">
+        <button type="button" onClick={onPrev} aria-label="Previous Image" className={controlClass}>
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+
+        <motion.img
+          key={currentItem.id}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}
+          src={currentItem.image}
+          alt={currentItem.title}
+          width={currentItem.width}
+          height={currentItem.height}
+          decoding="async"
+          className="h-[clamp(170px,50dvh,720px)] w-0 flex-1 object-contain sm:h-[clamp(200px,58dvh,800px)]"
+        />
+
+        <button type="button" onClick={onNext} aria-label="Next Image" className={controlClass}>
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+
+      <div className="mx-auto mt-3 max-w-2xl text-center">
+        <h2 className="text-lg font-medium sm:text-xl">{currentItem.title}</h2>
+        {currentItem.designNotes && (
+          <div className="mt-1 flex items-center justify-center gap-2 text-xs text-gold-light">
+            <Sparkles aria-hidden="true" className="h-3 w-3" />
+            <span>{currentItem.designNotes}</span>
           </div>
+        )}
+        <p className="mt-1 text-sm leading-relaxed text-white/75">{currentItem.description}</p>
+        {showOriginal && (
+          <a href={currentItem.image} target="_blank" rel="noreferrer" className="mt-2 inline-block rounded-sm text-sm text-gold-light underline underline-offset-4 focus-visible:outline-2">
+            View full-size board<span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        )}
+      </div>
 
-          {/* Close Button */}
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close Lightbox"
-            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer focus:outline-none"
-          >
-            <X className="w-5 h-5" />
-          </button>
+      {onSelect && (
+        <div ref={previewsRef} role="group" aria-label="Choose an image" className="relative mx-auto mt-4 flex w-fit max-w-full gap-2 overflow-x-auto p-1">
+          {items.map((item, index) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => onSelect(index)}
+              aria-label={item.title}
+              aria-current={currentIndex === index ? 'true' : undefined}
+              className="h-12 w-16 shrink-0 cursor-pointer overflow-hidden rounded-md border-2 border-transparent opacity-70 hover:opacity-100 focus-visible:outline-2 focus-visible:outline-white aria-[current=true]:border-gold-light aria-[current=true]:opacity-100 sm:h-14 sm:w-20"
+            >
+              <img src={item.thumbnail} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            </button>
+          ))}
         </div>
-
-        {/* Previous Navigation Button */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onPrev();
-          }}
-          aria-label="Previous Image"
-          className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all cursor-pointer focus:outline-none hover:scale-105"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-
-        {/* Next Navigation Button */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onNext();
-          }}
-          aria-label="Next Image"
-          className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all cursor-pointer focus:outline-none hover:scale-105"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-
-        {/* Main Lightbox Content Area */}
-        <div
-          className="relative max-w-5xl w-full max-h-[85vh] mx-auto px-4 sm:px-8 flex flex-col items-center justify-center"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <motion.div
-            key={currentItem.id}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative max-h-[52vh] sm:max-h-[65vh] w-auto overflow-hidden rounded-xl shadow-2xl border border-white/10"
-          >
-            <img
-              src={currentItem.image}
-              alt={currentItem.title}
-              width={currentItem.width}
-              height={currentItem.height}
-              decoding="async"
-              className="max-h-[52vh] sm:max-h-[65vh] w-auto object-contain max-w-full"
-            />
-          </motion.div>
-
-          {/* Bottom Image Details & Inspiration Notes */}
-          <motion.div
-            key={`caption-${currentItem.id}`}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="mt-4 text-center max-w-2xl text-white px-4"
-          >
-            <h4 className="text-lg sm:text-xl font-light tracking-wide text-white">
-              {currentItem.title}
-            </h4>
-
-            {currentItem.designNotes && (
-              <div className="mt-1 flex items-center justify-center gap-2 text-xs font-mono text-[#B58A3B]">
-                <Sparkles className="w-3 h-3" />
-                <span>{currentItem.designNotes}</span>
-              </div>
-            )}
-
-            <p className="mt-2 text-xs sm:text-sm text-white/70 line-clamp-2 leading-relaxed">
-              {currentItem.description}
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-    </AnimatePresence>
+      )}
+    </dialog>
   );
 }

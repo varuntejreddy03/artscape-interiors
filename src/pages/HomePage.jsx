@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Sparkles, Compass, Sliders, Layers, MapPin, Maximize2, Sun, Sunset, Moon } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Compass, Sliders, Layers, MapPin, Sun, Sunset, Moon } from 'lucide-react';
 import { BRAND } from '../data/brand';
 import { SERVICES } from '../data/servicesData';
-import { GALLERY_ITEMS } from '../data/galleryData';
+import { PROJECT_COLLECTIONS } from '../data/portfolioData';
 import logoImg from '../assets/logo.webp';
 import SectionHeading from '../components/SectionHeading';
 import ServiceCard from '../components/ServiceCard';
+import GalleryCollectionCard from '../components/GalleryCollectionCard';
 import GalleryLightbox from '../components/GalleryLightbox';
 import AtmosphereLab from '../components/AtmosphereLab';
 import SpatialEstimator from '../components/SpatialEstimator';
@@ -71,19 +72,18 @@ const PILLARS = [
 export default function HomePage() {
   const navigate = useNavigate();
   const [activeScene, setActiveScene] = useState(HERO_SCENES[0]);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeProject, setActiveProject] = useState(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const featuredServices = SERVICES.slice(0, 4);
-  const featuredGallery = GALLERY_ITEMS.slice(0, 6);
 
   const handleEnquireService = (serviceName) => {
     navigate(`/contact?service=${encodeURIComponent(serviceName)}`);
   };
 
-  const openLightbox = (index) => {
-    setLightboxIndex(index);
-    setLightboxOpen(true);
+  const openLightbox = (project) => {
+    setLightboxIndex(0);
+    setActiveProject(project);
   };
 
   return (
@@ -426,52 +426,20 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 bg-[#FAF8F5] relative border-t border-[#222222]/6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Previous Projects & Design Studies"
+            eyebrow="Portfolio"
             title={
               <>
                 Take a look at our{' '}
                 <span className="italic font-serif font-normal text-[#B58A3B]">project collection</span>.
               </>
             }
-            subtitle="Explore Indis Viva City, Chanda Nagar, Kadapa, our dental clinic interiors, and elevations in Proddutur and Siddavatam."
+            subtitle="Open a project to see its rooms and details together, or explore design references and concept boards in the portfolio."
             align="split"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {featuredGallery.map((item, index) => (
-              <div
-                key={item.id}
-                onClick={() => openLightbox(index)}
-                role="button"
-                tabIndex={0}
-                aria-label={`View ${item.title}`}
-                onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(index); } }}
-                className="group relative rounded-2xl overflow-hidden bg-[#EDE7DD] shadow-[0_4px_24px_rgba(0,0,0,0.03)] border border-[#222222]/8 cursor-pointer aspect-[4/3]"
-              >
-                <img
-                  src={item.thumbnail}
-                  alt={item.title}
-                  width={item.width}
-                  height={item.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <span className="absolute top-3 left-3 rounded-full bg-[#F7F3EC]/95 px-3 py-1.5 text-xs font-medium text-[#222222] shadow-sm">{item.project}</span>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5 text-white">
-                  <div className="self-end w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
-                    <Maximize2 className="w-3.5 h-3.5 text-white" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#B58A3B] block mb-1">
-                      {item.designNotes}
-                    </span>
-                    <h4 className="text-sm sm:text-base font-light text-white">
-                      {item.title}
-                    </h4>
-                  </div>
-                </div>
-              </div>
+            {PROJECT_COLLECTIONS.map((project) => (
+              <GalleryCollectionCard key={project.id} collection={project} onOpen={openLightbox} />
             ))}
           </div>
 
@@ -480,7 +448,7 @@ export default function HomePage() {
               to="/gallery"
               className="inline-flex items-center justify-center gap-2.5 text-xs uppercase tracking-widest font-semibold px-7 py-3.5 rounded-full bg-[#B58A3B] text-white hover:bg-[#A37B30] transition-all shadow-sm"
             >
-              <span>Explore All Projects</span>
+              <span>Explore the Portfolio</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -508,15 +476,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Lightbox Modal */}
-      <GalleryLightbox
-        isOpen={lightboxOpen}
-        currentIndex={lightboxIndex}
-        items={featuredGallery}
-        onClose={() => setLightboxOpen(false)}
-        onNext={() => setLightboxIndex((prev) => (prev + 1) % featuredGallery.length)}
-        onPrev={() => setLightboxIndex((prev) => (prev - 1 + featuredGallery.length) % featuredGallery.length)}
-      />
+      {activeProject && (
+        <GalleryLightbox
+          isOpen
+          title={activeProject.title}
+          currentIndex={lightboxIndex}
+          items={activeProject.items}
+          onClose={() => setActiveProject(null)}
+          onNext={() => setLightboxIndex((index) => (index + 1) % activeProject.items.length)}
+          onPrev={() => setLightboxIndex((index) => (index - 1 + activeProject.items.length) % activeProject.items.length)}
+          onSelect={setLightboxIndex}
+        />
+      )}
     </div>
   );
 }

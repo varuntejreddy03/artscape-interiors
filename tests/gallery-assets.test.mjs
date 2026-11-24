@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { GALLERY_CATEGORIES, GALLERY_ITEMS } from '../src/data/galleryData.js';
+import { CONCEPT_BOARDS, DESIGN_COLLECTIONS, PROJECT_COLLECTIONS } from '../src/data/portfolioData.js';
 import { SERVICES } from '../src/data/servicesData.js';
 
 test('project filters have unique, complete entries and real local images', () => {
@@ -71,4 +72,29 @@ test('the supplied project folders are complete without duplicate images', () =>
   const hashes = GALLERY_ITEMS.map(({ image }) => createHash('sha256')
     .update(readFileSync(new URL(`../public${image}`, import.meta.url))).digest('hex'));
   assert.equal(new Set(hashes).size, GALLERY_ITEMS.length);
+});
+
+test('the portfolio groups each render and includes every November 24 design reference', () => {
+  assert.equal(PROJECT_COLLECTIONS.length, 6);
+  for (const { title, items } of PROJECT_COLLECTIONS) {
+    assert.ok(items.length > 1, title);
+    assert.ok(items.every((item) => item.project === title), title);
+  }
+
+  const newReferences = DESIGN_COLLECTIONS.map(({ items }) =>
+    items.filter(({ image }) => image.startsWith('/images/portfolio/')).length);
+  assert.deepEqual(newReferences, [5, 10, 6, 7, 4, 4, 5]);
+  assert.equal(CONCEPT_BOARDS.length, 7);
+
+  const portfolio = [...PROJECT_COLLECTIONS, ...DESIGN_COLLECTIONS].flatMap(({ items }) => items);
+  assert.deepEqual(portfolio.filter((item) => item.project).map(({ id }) => id).sort(), GALLERY_ITEMS.map(({ id }) => id).sort());
+  const allImages = [...portfolio, ...CONCEPT_BOARDS];
+  assert.equal(new Set(allImages.map(({ id }) => id)).size, allImages.length);
+  for (const { image, thumbnail, width, height } of allImages) {
+    assert.ok(width > 0 && height > 0, image);
+    assert.ok(statSync(new URL(`../public${image}`, import.meta.url)).size < 450 * 1024, image);
+    assert.ok(statSync(new URL(`../public${thumbnail}`, import.meta.url)).size < 64 * 1024, thumbnail);
+  }
+  assert.ok(!GALLERY_ITEMS.some(({ id }) => id === 'indis-pooja-cabinet'));
+  assert.ok(!existsSync(new URL('../public/images/projects/indis-pooja-cabinet.webp', import.meta.url)));
 });

@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: 'Services', path: '/services' },
-  { name: 'Projects', path: '/gallery' },
+  { name: 'Portfolio', path: '/gallery' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
@@ -46,15 +46,15 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 flex h-(--site-header-height) items-center border-b transition-colors duration-500 ${
           isScrolled
-            ? 'bg-[#181818]/75 backdrop-blur-md py-2 sm:py-3 border-b border-white/10'
+            ? 'bg-[#181818]/75 backdrop-blur-md border-white/10'
             : isHomePage
-            ? 'bg-transparent py-2 sm:py-3'
-            : 'bg-[#181818]/95 backdrop-blur-md py-2 sm:py-3 border-b border-white/5'
+            ? 'bg-transparent border-transparent'
+            : 'bg-[#181818]/95 backdrop-blur-md border-white/5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Brand Logo & Name */}
             <Link
@@ -67,7 +67,7 @@ export default function Navbar() {
                 alt="Artscape Interiors — Designing Dream Spaces"
                 width="1536"
                 height="1024"
-                className="w-24 sm:w-28 h-16 sm:h-[74px] object-contain transition-transform group-hover:scale-105"
+                className="h-12 w-auto object-contain transition-transform group-hover:scale-105 sm:h-14"
               />
             </Link>
 
@@ -141,7 +141,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 bg-[#F7F3EC] flex flex-col justify-between pt-20 pb-6 px-5 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-50 bg-[#F7F3EC] flex flex-col justify-between pt-(--site-header-height) pb-6 px-5 md:hidden overflow-y-auto"
           >
             {/* Top Bar inside Drawer with Close Button */}
             <div className="flex items-center justify-between pb-4 border-b border-[#222222]/10 mb-4">

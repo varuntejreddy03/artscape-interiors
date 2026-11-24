@@ -11,7 +11,7 @@ const FOOTER_NAV = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: 'Services', path: '/services' },
-  { name: 'Projects', path: '/gallery' },
+  { name: 'Portfolio', path: '/gallery' },
   { name: 'Contact Us', path: '/contact' },
 ];
 

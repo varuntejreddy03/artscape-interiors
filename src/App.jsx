@@ -15,7 +15,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#F7F3EC] text-[#222222] font-sans antialiased selection:bg-[#B58A3B]/20 selection:text-[#222222] overflow-x-hidden flex flex-col">
+      <div className="min-h-screen bg-[#F7F3EC] text-[#222222] font-sans antialiased selection:bg-[#B58A3B]/20 selection:text-[#222222] overflow-x-clip flex flex-col [--site-header-height:4rem] sm:[--site-header-height:4.5rem]">
         {/* Universal Sticky Glassmorphism Header */}
         <Navbar />
 
