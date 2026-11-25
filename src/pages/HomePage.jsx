@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Sparkles, Compass, Sliders, Layers, MapPin, Sun, Sunset, Moon } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Sparkles, Compass, Sliders, Layers, MapPin, Sun, Sunset, Moon } from 'lucide-react';
 import { BRAND } from '../data/brand';
 import { SERVICES } from '../data/servicesData';
 import { GALLERY_ITEMS } from '../data/galleryData';
@@ -170,19 +170,27 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
-                className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5"
+                className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:flex sm:flex-wrap sm:items-center sm:gap-3"
               >
+                <a
+                  href="#concept-boards"
+                  className="col-span-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#D9B66C] px-5 py-3 text-center text-xs font-semibold uppercase tracking-wider text-[#222222] shadow-sm transition-colors hover:bg-[#EDCE87] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-light sm:px-6"
+                >
+                  Explore concept boards
+                  <ArrowDown className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+
                 <Link
                   to="/gallery"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-semibold px-6 py-3.5 sm:px-7 rounded-full bg-[#B58A3B] text-white hover:bg-[#A37B30] shadow-sm hover:shadow-lg transition-all text-center"
+                  className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full border border-white/30 px-3 py-3 text-center text-[11px] font-medium uppercase tracking-wider text-ivory transition-colors hover:border-gold-light hover:bg-white/10 sm:px-5 sm:text-xs"
                 >
                   <span>Explore Our Work</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="hidden h-3.5 w-3.5 shrink-0 sm:block" aria-hidden="true" />
                 </Link>
 
                 <Link
                   to="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-medium px-6 py-3.5 sm:px-7 rounded-full bg-transparent text-[#F7F3EC] border border-white/20 hover:border-[#B58A3B] hover:bg-white/10 hover:text-white transition-all text-center"
+                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/30 px-3 py-3 text-center text-[11px] font-medium uppercase tracking-wider text-ivory transition-colors hover:border-gold-light hover:bg-white/10 sm:px-5 sm:text-xs"
                 >
                   <span>Let's Talk</span>
                 </Link>
@@ -230,15 +238,7 @@ export default function HomePage() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-8 sm:mt-10 pt-4 sm:pt-5 border-t border-white/10 flex items-center justify-between text-white/60 text-xs">
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-[#B58A3B] tracking-wider uppercase text-[11px]">
-                Modern Luxury
-              </span>
-              <span className="hidden sm:inline text-white/30">•</span>
-              <span className="hidden sm:inline text-[11px]">Kondapur, Hyderabad</span>
-            </div>
-
+          <div className="mt-8 sm:mt-10 pt-4 sm:pt-5 border-t border-white/10 flex items-center justify-end text-white/60 text-xs">
             <Link
               to="/about"
               className="flex items-center gap-1.5 text-white/80 hover:text-[#B58A3B] transition-colors"
@@ -247,6 +247,20 @@ export default function HomePage() {
               <ArrowUpRight className="w-3 h-3" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="concept-boards"
+        tabIndex={-1}
+        aria-labelledby="concept-boards-title"
+        className="scroll-mt-(--site-header-height) bg-ivory-dark py-8 sm:py-14"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="concept-boards-title" className="mb-5 text-3xl font-light tracking-tight sm:mb-7 sm:text-4xl lg:text-5xl">
+            Interior <span className="font-serif italic text-gold-dark">concept boards</span>
+          </h2>
+          <AtmosphereLab />
         </div>
       </section>
 
@@ -345,26 +359,6 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. MATERIAL & STYLE EXPLORER */}
-      <section className="py-16 sm:py-24 bg-[#FAF8F5] border-t border-[#222222]/6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Styles & Finishes"
-            title={
-              <>
-                Explore our signature{' '}
-                <span className="italic font-serif font-normal text-[#B58A3B]">interior styles</span>.
-              </>
-            }
-            align="split"
-          />
-
-          <div className="mt-6 sm:mt-8">
-            <AtmosphereLab />
           </div>
         </div>
       </section>
